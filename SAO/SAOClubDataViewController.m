@@ -85,24 +85,43 @@
 	// Email Content
 	NSString *messageBody;
     
-    if (name && major && class)
-    {
-        if (class.length > 0 && [class rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]].location != NSNotFound)
-        {
-            messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@, my major is %@, and I am in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, class, self.navigationItem.title, name];
-
-        } else {
-            messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am a %@ %@ major. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, major, self.navigationItem.title, name];
+    if ([name length] > 0) {
+        
+        if ([class length] > 0) {
+	        
+	    	if ([class rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]].location != NSNotFound) {
+	            
+	    		// Class year & major
+	    		if ([major length] > 0) {
+	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@, my major is %@, and I am in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, class, self.navigationItem.title, name];
+	                
+	                // Class year & no major
+		    	} else {
+		    		messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, self.navigationItem.title, name];
+		    	}
+	            
+	    	} else {
+	            
+	    		// Class category & major
+	    		if ([major length] > 0) {
+	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am a %@ %@ major. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, major, self.navigationItem.title, name];
+	                
+                // Class category & no major
+	    		} else {
+	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am currently a %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, self.navigationItem.title, name];
+	    		}
+	            
+	    	}
+	        
+        // No class & major
+	    } else if ([major length] > 0) {
+	        messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and my major is %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, self.navigationItem.title, name];
+	        
         }
+    } else {
+    	messageBody = nil;
     }
-    else if (name && major && !class)
-    {
-        messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and my major is %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, self.navigationItem.title, name];
-    }
-    else if (!name || !major)
-    {
-        messageBody = nil;
-    }
+    
 	// To address
 	NSArray *toRecipents = [NSArray arrayWithObject:[[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Email"]];
 	
