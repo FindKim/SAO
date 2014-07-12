@@ -7,20 +7,94 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C23D8C417530F6D00B82DA9 /* SAOClubMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C23D8C317530F6D00B82DA9 /* SAOClubMapViewController.m */; };
+		2C23D8CA175317A200B82DA9 /* SAOEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C23D8C9175317A200B82DA9 /* SAOEditProfileViewController.m */; };
 		2C31B8DF17443CBA008801D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C31B8DE17443CBA008801D4 /* UIKit.framework */; };
 		2C31B8E117443CBA008801D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C31B8E017443CBA008801D4 /* Foundation.framework */; };
 		2C31B8E317443CBA008801D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C31B8E217443CBA008801D4 /* CoreGraphics.framework */; };
 		2C31B8E917443CBA008801D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C31B8E717443CBA008801D4 /* InfoPlist.strings */; };
 		2C31B8EB17443CBA008801D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C31B8EA17443CBA008801D4 /* main.m */; };
 		2C31B8EF17443CBA008801D4 /* SAOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C31B8EE17443CBA008801D4 /* SAOAppDelegate.m */; };
-		2C31B8F117443CBA008801D4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C31B8F017443CBA008801D4 /* Default.png */; };
-		2C31B8F317443CBA008801D4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C31B8F217443CBA008801D4 /* Default@2x.png */; };
-		2C31B8F517443CBA008801D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C31B8F417443CBA008801D4 /* Default-568h@2x.png */; };
 		2C31B8F817443CBA008801D4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C31B8F617443CBA008801D4 /* MainStoryboard.storyboard */; };
 		2C31B8FB17443CBA008801D4 /* SAOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C31B8FA17443CBA008801D4 /* SAOViewController.m */; };
+		2C31B90617445367008801D4 /* SAOClubTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C31B90517445367008801D4 /* SAOClubTableViewController.m */; };
+		2C3EDEE217B1CC6C001B7105 /* SAOClubNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3EDEE117B1CC6C001B7105 /* SAOClubNavigationController.m */; };
+		2C6FBFE517BB77FC0047CC05 /* SAO Tab No Facts 320x650.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FBFE417BB77FC0047CC05 /* SAO Tab No Facts 320x650.jpg */; };
+		2C6FBFE817BB84020047CC05 /* SAOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FBFE717BB84020047CC05 /* SAOButton.m */; };
+		2C6FBFEE17BB9EFB0047CC05 /* EmptyStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FBFEA17BB9EFB0047CC05 /* EmptyStar.png */; };
+		2C6FBFEF17BB9EFB0047CC05 /* EmptyStarNoShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FBFEB17BB9EFB0047CC05 /* EmptyStarNoShadow.png */; };
+		2C6FBFF017BB9EFB0047CC05 /* FilledStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FBFEC17BB9EFB0047CC05 /* FilledStar.png */; };
+		2C6FBFF117BB9EFB0047CC05 /* FilledStarNoShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FBFED17BB9EFB0047CC05 /* FilledStarNoShadow.png */; };
+		2C6FBFF417BBCD030047CC05 /* SAOTappableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FBFF317BBCD030047CC05 /* SAOTappableView.m */; };
+		2C6FBFF717BBD7C90047CC05 /* SAOTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FBFF617BBD7C80047CC05 /* SAOTabBarController.m */; };
+		2C8C9664174BCFBB000416F1 /* SAOClubDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C9663174BCFBB000416F1 /* SAOClubDataViewController.m */; };
+		2C8C9667174BCFE8000416F1 /* SAOProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C9666174BCFE8000416F1 /* SAOProfileViewController.m */; };
+		2C8F585817CC7B0A0092E639 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8F585717CC7B0A0092E639 /* MessageUI.framework */; };
+		2C8F586617CC7F940092E639 /* Academic cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585A17CC7F940092E639 /* Academic cell.png */; };
+		2C8F586717CC7F940092E639 /* Academic cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585B17CC7F940092E639 /* Academic cell@2x.png */; };
+		2C8F586817CC7F940092E639 /* Athletic cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585C17CC7F940092E639 /* Athletic cell.png */; };
+		2C8F586917CC7F940092E639 /* Athletic cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585D17CC7F940092E639 /* Athletic cell@2x.png */; };
+		2C8F586A17CC7F940092E639 /* Cultural cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585E17CC7F940092E639 /* Cultural cell.png */; };
+		2C8F586B17CC7F940092E639 /* Cultural cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585F17CC7F940092E639 /* Cultural cell@2x.png */; };
+		2C8F586C17CC7F940092E639 /* Performing Arts cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586017CC7F940092E639 /* Performing Arts cell.png */; };
+		2C8F586D17CC7F940092E639 /* Performing Arts cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586117CC7F940092E639 /* Performing Arts cell@2x.png */; };
+		2C8F586E17CC7F940092E639 /* Social Service cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586217CC7F940092E639 /* Social Service cell.png */; };
+		2C8F586F17CC7F940092E639 /* Social Service cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586317CC7F940092E639 /* Social Service cell@2x.png */; };
+		2C8F587017CC7F940092E639 /* Special Interest cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586417CC7F940092E639 /* Special Interest cell.png */; };
+		2C8F587117CC7F940092E639 /* Special Interest cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586517CC7F940092E639 /* Special Interest cell@2x.png */; };
+		2C8F587617CC7FE50092E639 /* Login@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F587317CC7FE50092E639 /* Login@2x.jpg */; };
+		2C8F587717CC7FE50092E639 /* Login Long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F587417CC7FE50092E639 /* Login Long.jpg */; };
+		2C8F587817CC7FE50092E639 /* Login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F587517CC7FE50092E639 /* Login.jpg */; };
+		2C8F587B17CC81310092E639 /* SAOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F587A17CC81310092E639 /* SAOLoginViewController.m */; };
+		2C8F588F17CC82900092E639 /* Academic-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F587D17CC82900092E639 /* Academic-tall.png */; };
+		2C8F589017CC82900092E639 /* Academic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F587E17CC82900092E639 /* Academic.png */; };
+		2C8F589117CC82900092E639 /* Academic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F587F17CC82900092E639 /* Academic@2x.png */; };
+		2C8F589217CC82900092E639 /* Athletic-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588017CC82900092E639 /* Athletic-tall.png */; };
+		2C8F589317CC82900092E639 /* Athletic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588117CC82900092E639 /* Athletic.png */; };
+		2C8F589417CC82900092E639 /* Athletic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588217CC82900092E639 /* Athletic@2x.png */; };
+		2C8F589517CC82900092E639 /* Cultural-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588317CC82900092E639 /* Cultural-tall.png */; };
+		2C8F589617CC82900092E639 /* Cultural.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588417CC82900092E639 /* Cultural.png */; };
+		2C8F589717CC82900092E639 /* Cultural@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588517CC82900092E639 /* Cultural@2x.png */; };
+		2C8F589817CC82900092E639 /* Performing Arts-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588617CC82900092E639 /* Performing Arts-tall.png */; };
+		2C8F589917CC82900092E639 /* Performing Arts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588717CC82900092E639 /* Performing Arts.png */; };
+		2C8F589A17CC82900092E639 /* Performing Arts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588817CC82900092E639 /* Performing Arts@2x.png */; };
+		2C8F589B17CC82900092E639 /* Social Service-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588917CC82900092E639 /* Social Service-tall.png */; };
+		2C8F589C17CC82900092E639 /* Social Service.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588A17CC82900092E639 /* Social Service.png */; };
+		2C8F589D17CC82900092E639 /* Social Service@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588B17CC82900092E639 /* Social Service@2x.png */; };
+		2C8F589E17CC82900092E639 /* Special Interest-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588C17CC82900092E639 /* Special Interest-tall.png */; };
+		2C8F589F17CC82900092E639 /* Special Interest.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588D17CC82900092E639 /* Special Interest.png */; };
+		2C8F58A017CC82900092E639 /* Special Interest@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F588E17CC82900092E639 /* Special Interest@2x.png */; };
+		2C8F58A217CC84160092E639 /* SAO Tab No Facts 320x411.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58A117CC84160092E639 /* SAO Tab No Facts 320x411.jpg */; };
+		2C8F58A617CD32DD0092E639 /* SAO Tab Tappable Long@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58A317CD32D80092E639 /* SAO Tab Tappable Long@2x.jpg */; };
+		2C8F58A717CD32DD0092E639 /* SAO Tab Tappable.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58A417CD32D80092E639 /* SAO Tab Tappable.jpg */; };
+		2C8F58A817CD32DD0092E639 /* SAO Tab Tappable @2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58A517CD32DA0092E639 /* SAO Tab Tappable @2x.jpg */; };
+		2C8F58AD17CDBC9C0092E639 /* SAO-Tab-Long-png.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58AA17CDBC9C0092E639 /* SAO-Tab-Long-png.png */; };
+		2C8F58AE17CDBC9C0092E639 /* SAO-Tab-png.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58AB17CDBC9C0092E639 /* SAO-Tab-png.png */; };
+		2C8F58AF17CDBC9C0092E639 /* SAO-Tab-png@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58AC17CDBC9C0092E639 /* SAO-Tab-png@2x.png */; };
+		2C8F58B717CDC0130092E639 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58B617CDC0130092E639 /* Default-568h@2x.png */; };
+		2C8F58B917CDC0260092E639 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58B817CDC0260092E639 /* Default@2x.png */; };
+		2C8F58BB17CDC02B0092E639 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58BA17CDC02B0092E639 /* Default.png */; };
+		2C937FDD174472780095EFB7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C937FDC174472780095EFB7 /* CoreData.framework */; };
+		2C937FEF1746A05C0095EFB7 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C937FEE1746A05C0095EFB7 /* CSVParser.m */; };
+		2CA8A93517581F8B0012718E /* clubs tab bar icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A91F17581F8B0012718E /* clubs tab bar icon.png */; };
+		2CA8A93617581F8B0012718E /* clubs tab bar icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92017581F8B0012718E /* clubs tab bar icon@2x.png */; };
+		2CA8A93717581F8B0012718E /* maps tab bar icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92117581F8B0012718E /* maps tab bar icon.png */; };
+		2CA8A93817581F8B0012718E /* maps tab bar icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92217581F8B0012718E /* maps tab bar icon@2x.png */; };
+		2CA8A93917581F8B0012718E /* profile tab bar icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92317581F8B0012718E /* profile tab bar icon.png */; };
+		2CA8A93A17581F8B0012718E /* profile tab bar icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92417581F8B0012718E /* profile tab bar icon@2x.png */; };
+		2CA8A93B17581F8B0012718E /* SAO tab bar icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92517581F8B0012718E /* SAO tab bar icon.png */; };
+		2CA8A93C17581F8B0012718E /* SAO tab bar icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92617581F8B0012718E /* SAO tab bar icon@2x.png */; };
+		2CA8A93E175820B70012718E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A93D175820B70012718E /* Icon.png */; };
+		2CA8A940175820C20012718E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A93F175820C10012718E /* Icon@2x.png */; };
+		2CF8BA34175DA64900B57F36 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8BA32175DA64900B57F36 /* Home.png */; };
+		2CF8BA35175DA64900B57F36 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8BA33175DA64900B57F36 /* Home@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C23D8C217530F6D00B82DA9 /* SAOClubMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOClubMapViewController.h; sourceTree = "<group>"; };
+		2C23D8C317530F6D00B82DA9 /* SAOClubMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOClubMapViewController.m; sourceTree = "<group>"; };
+		2C23D8C8175317A200B82DA9 /* SAOEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOEditProfileViewController.h; sourceTree = "<group>"; };
+		2C23D8C9175317A200B82DA9 /* SAOEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOEditProfileViewController.m; sourceTree = "<group>"; };
 		2C31B8DB17443CBA008801D4 /* SAO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C31B8DE17443CBA008801D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2C31B8E017443CBA008801D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -31,12 +105,89 @@
 		2C31B8EC17443CBA008801D4 /* SAO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SAO-Prefix.pch"; sourceTree = "<group>"; };
 		2C31B8ED17443CBA008801D4 /* SAOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAOAppDelegate.h; sourceTree = "<group>"; };
 		2C31B8EE17443CBA008801D4 /* SAOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAOAppDelegate.m; sourceTree = "<group>"; };
-		2C31B8F017443CBA008801D4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		2C31B8F217443CBA008801D4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		2C31B8F417443CBA008801D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2C31B8F717443CBA008801D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		2C31B8F917443CBA008801D4 /* SAOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAOViewController.h; sourceTree = "<group>"; };
 		2C31B8FA17443CBA008801D4 /* SAOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAOViewController.m; sourceTree = "<group>"; };
+		2C31B90417445367008801D4 /* SAOClubTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOClubTableViewController.h; sourceTree = "<group>"; };
+		2C31B90517445367008801D4 /* SAOClubTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOClubTableViewController.m; sourceTree = "<group>"; };
+		2C3EDEE017B1CC6C001B7105 /* SAOClubNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOClubNavigationController.h; sourceTree = "<group>"; };
+		2C3EDEE117B1CC6C001B7105 /* SAOClubNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOClubNavigationController.m; sourceTree = "<group>"; };
+		2C6FBFE417BB77FC0047CC05 /* SAO Tab No Facts 320x650.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "SAO Tab No Facts 320x650.jpg"; sourceTree = "<group>"; };
+		2C6FBFE617BB84020047CC05 /* SAOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOButton.h; sourceTree = "<group>"; };
+		2C6FBFE717BB84020047CC05 /* SAOButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOButton.m; sourceTree = "<group>"; };
+		2C6FBFEA17BB9EFB0047CC05 /* EmptyStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmptyStar.png; sourceTree = "<group>"; };
+		2C6FBFEB17BB9EFB0047CC05 /* EmptyStarNoShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmptyStarNoShadow.png; sourceTree = "<group>"; };
+		2C6FBFEC17BB9EFB0047CC05 /* FilledStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilledStar.png; sourceTree = "<group>"; };
+		2C6FBFED17BB9EFB0047CC05 /* FilledStarNoShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilledStarNoShadow.png; sourceTree = "<group>"; };
+		2C6FBFF217BBCD030047CC05 /* SAOTappableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOTappableView.h; sourceTree = "<group>"; };
+		2C6FBFF317BBCD030047CC05 /* SAOTappableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOTappableView.m; sourceTree = "<group>"; };
+		2C6FBFF517BBD7C80047CC05 /* SAOTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOTabBarController.h; sourceTree = "<group>"; };
+		2C6FBFF617BBD7C80047CC05 /* SAOTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOTabBarController.m; sourceTree = "<group>"; };
+		2C8C9662174BCFBB000416F1 /* SAOClubDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOClubDataViewController.h; sourceTree = "<group>"; };
+		2C8C9663174BCFBB000416F1 /* SAOClubDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOClubDataViewController.m; sourceTree = "<group>"; };
+		2C8C9665174BCFE8000416F1 /* SAOProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOProfileViewController.h; sourceTree = "<group>"; };
+		2C8C9666174BCFE8000416F1 /* SAOProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOProfileViewController.m; sourceTree = "<group>"; };
+		2C8F585717CC7B0A0092E639 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2C8F585A17CC7F940092E639 /* Academic cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Academic cell.png"; sourceTree = "<group>"; };
+		2C8F585B17CC7F940092E639 /* Academic cell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Academic cell@2x.png"; sourceTree = "<group>"; };
+		2C8F585C17CC7F940092E639 /* Athletic cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Athletic cell.png"; sourceTree = "<group>"; };
+		2C8F585D17CC7F940092E639 /* Athletic cell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Athletic cell@2x.png"; sourceTree = "<group>"; };
+		2C8F585E17CC7F940092E639 /* Cultural cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cultural cell.png"; sourceTree = "<group>"; };
+		2C8F585F17CC7F940092E639 /* Cultural cell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cultural cell@2x.png"; sourceTree = "<group>"; };
+		2C8F586017CC7F940092E639 /* Performing Arts cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Performing Arts cell.png"; sourceTree = "<group>"; };
+		2C8F586117CC7F940092E639 /* Performing Arts cell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Performing Arts cell@2x.png"; sourceTree = "<group>"; };
+		2C8F586217CC7F940092E639 /* Social Service cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Social Service cell.png"; sourceTree = "<group>"; };
+		2C8F586317CC7F940092E639 /* Social Service cell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Social Service cell@2x.png"; sourceTree = "<group>"; };
+		2C8F586417CC7F940092E639 /* Special Interest cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Special Interest cell.png"; sourceTree = "<group>"; };
+		2C8F586517CC7F940092E639 /* Special Interest cell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Special Interest cell@2x.png"; sourceTree = "<group>"; };
+		2C8F587317CC7FE50092E639 /* Login@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Login@2x.jpg"; sourceTree = "<group>"; };
+		2C8F587417CC7FE50092E639 /* Login Long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Login Long.jpg"; sourceTree = "<group>"; };
+		2C8F587517CC7FE50092E639 /* Login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Login.jpg; sourceTree = "<group>"; };
+		2C8F587917CC81300092E639 /* SAOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAOLoginViewController.h; sourceTree = "<group>"; };
+		2C8F587A17CC81310092E639 /* SAOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAOLoginViewController.m; sourceTree = "<group>"; };
+		2C8F587D17CC82900092E639 /* Academic-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Academic-tall.png"; sourceTree = "<group>"; };
+		2C8F587E17CC82900092E639 /* Academic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Academic.png; sourceTree = "<group>"; };
+		2C8F587F17CC82900092E639 /* Academic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Academic@2x.png"; sourceTree = "<group>"; };
+		2C8F588017CC82900092E639 /* Athletic-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Athletic-tall.png"; sourceTree = "<group>"; };
+		2C8F588117CC82900092E639 /* Athletic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Athletic.png; sourceTree = "<group>"; };
+		2C8F588217CC82900092E639 /* Athletic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Athletic@2x.png"; sourceTree = "<group>"; };
+		2C8F588317CC82900092E639 /* Cultural-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cultural-tall.png"; sourceTree = "<group>"; };
+		2C8F588417CC82900092E639 /* Cultural.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cultural.png; sourceTree = "<group>"; };
+		2C8F588517CC82900092E639 /* Cultural@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cultural@2x.png"; sourceTree = "<group>"; };
+		2C8F588617CC82900092E639 /* Performing Arts-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Performing Arts-tall.png"; sourceTree = "<group>"; };
+		2C8F588717CC82900092E639 /* Performing Arts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Performing Arts.png"; sourceTree = "<group>"; };
+		2C8F588817CC82900092E639 /* Performing Arts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Performing Arts@2x.png"; sourceTree = "<group>"; };
+		2C8F588917CC82900092E639 /* Social Service-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Social Service-tall.png"; sourceTree = "<group>"; };
+		2C8F588A17CC82900092E639 /* Social Service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Social Service.png"; sourceTree = "<group>"; };
+		2C8F588B17CC82900092E639 /* Social Service@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Social Service@2x.png"; sourceTree = "<group>"; };
+		2C8F588C17CC82900092E639 /* Special Interest-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Special Interest-tall.png"; sourceTree = "<group>"; };
+		2C8F588D17CC82900092E639 /* Special Interest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Special Interest.png"; sourceTree = "<group>"; };
+		2C8F588E17CC82900092E639 /* Special Interest@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Special Interest@2x.png"; sourceTree = "<group>"; };
+		2C8F58A117CC84160092E639 /* SAO Tab No Facts 320x411.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SAO Tab No Facts 320x411.jpg"; path = "appData/SAO_Homepage/SAO Tab No Facts 320x411.jpg"; sourceTree = "<group>"; };
+		2C8F58A317CD32D80092E639 /* SAO Tab Tappable Long@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SAO Tab Tappable Long@2x.jpg"; path = "appData/SAO_Homepage/SAO Tab Tappable Long@2x.jpg"; sourceTree = "<group>"; };
+		2C8F58A417CD32D80092E639 /* SAO Tab Tappable.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SAO Tab Tappable.jpg"; path = "appData/SAO_Homepage/SAO Tab Tappable.jpg"; sourceTree = "<group>"; };
+		2C8F58A517CD32DA0092E639 /* SAO Tab Tappable @2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SAO Tab Tappable @2x.jpg"; path = "appData/SAO_Homepage/SAO Tab Tappable @2x.jpg"; sourceTree = "<group>"; };
+		2C8F58AA17CDBC9C0092E639 /* SAO-Tab-Long-png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAO-Tab-Long-png.png"; sourceTree = "<group>"; };
+		2C8F58AB17CDBC9C0092E639 /* SAO-Tab-png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAO-Tab-png.png"; sourceTree = "<group>"; };
+		2C8F58AC17CDBC9C0092E639 /* SAO-Tab-png@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAO-Tab-png@2x.png"; sourceTree = "<group>"; };
+		2C8F58B617CDC0130092E639 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2C8F58B817CDC0260092E639 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2C8F58BA17CDC02B0092E639 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2C937FDC174472780095EFB7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2C937FED1746A05C0095EFB7 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
+		2C937FEE1746A05C0095EFB7 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVParser.m; sourceTree = "<group>"; };
+		2CA8A91F17581F8B0012718E /* clubs tab bar icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clubs tab bar icon.png"; sourceTree = "<group>"; };
+		2CA8A92017581F8B0012718E /* clubs tab bar icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clubs tab bar icon@2x.png"; sourceTree = "<group>"; };
+		2CA8A92117581F8B0012718E /* maps tab bar icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maps tab bar icon.png"; sourceTree = "<group>"; };
+		2CA8A92217581F8B0012718E /* maps tab bar icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maps tab bar icon@2x.png"; sourceTree = "<group>"; };
+		2CA8A92317581F8B0012718E /* profile tab bar icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile tab bar icon.png"; sourceTree = "<group>"; };
+		2CA8A92417581F8B0012718E /* profile tab bar icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile tab bar icon@2x.png"; sourceTree = "<group>"; };
+		2CA8A92517581F8B0012718E /* SAO tab bar icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAO tab bar icon.png"; sourceTree = "<group>"; };
+		2CA8A92617581F8B0012718E /* SAO tab bar icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAO tab bar icon@2x.png"; sourceTree = "<group>"; };
+		2CA8A93D175820B70012718E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../Icon.png; sourceTree = "<group>"; };
+		2CA8A93F175820C10012718E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Icon@2x.png"; sourceTree = "<group>"; };
+		2CF8BA32175DA64900B57F36 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		2CF8BA33175DA64900B57F36 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +195,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C8F585817CC7B0A0092E639 /* MessageUI.framework in Frameworks */,
+				2C937FDD174472780095EFB7 /* CoreData.framework in Frameworks */,
 				2C31B8DF17443CBA008801D4 /* UIKit.framework in Frameworks */,
 				2C31B8E117443CBA008801D4 /* Foundation.framework in Frameworks */,
 				2C31B8E317443CBA008801D4 /* CoreGraphics.framework in Frameworks */,
@@ -53,9 +206,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C23D8BD17530C0700B82DA9 /* Club ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C3EDEE017B1CC6C001B7105 /* SAOClubNavigationController.h */,
+				2C3EDEE117B1CC6C001B7105 /* SAOClubNavigationController.m */,
+				2C8C9662174BCFBB000416F1 /* SAOClubDataViewController.h */,
+				2C8C9663174BCFBB000416F1 /* SAOClubDataViewController.m */,
+				2C31B90417445367008801D4 /* SAOClubTableViewController.h */,
+				2C31B90517445367008801D4 /* SAOClubTableViewController.m */,
+			);
+			name = "Club ViewControllers";
+			sourceTree = "<group>";
+		};
+		2C23D8BE17530CA000B82DA9 /* Profile ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C23D8C8175317A200B82DA9 /* SAOEditProfileViewController.h */,
+				2C23D8C9175317A200B82DA9 /* SAOEditProfileViewController.m */,
+				2C8C9665174BCFE8000416F1 /* SAOProfileViewController.h */,
+				2C8C9666174BCFE8000416F1 /* SAOProfileViewController.m */,
+			);
+			name = "Profile ViewControllers";
+			sourceTree = "<group>";
+		};
+		2C23D8BF17530CD300B82DA9 /* Other Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				2C6FBFF217BBCD030047CC05 /* SAOTappableView.h */,
+				2C6FBFF317BBCD030047CC05 /* SAOTappableView.m */,
+				2C937FED1746A05C0095EFB7 /* CSVParser.h */,
+				2C937FEE1746A05C0095EFB7 /* CSVParser.m */,
+				2C6FBFE617BB84020047CC05 /* SAOButton.h */,
+				2C6FBFE717BB84020047CC05 /* SAOButton.m */,
+			);
+			name = "Other Subclasses";
+			sourceTree = "<group>";
+		};
+		2C23D8C117530E7000B82DA9 /* Other View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C23D8C217530F6D00B82DA9 /* SAOClubMapViewController.h */,
+				2C23D8C317530F6D00B82DA9 /* SAOClubMapViewController.m */,
+				2C31B8F917443CBA008801D4 /* SAOViewController.h */,
+				2C31B8FA17443CBA008801D4 /* SAOViewController.m */,
+			);
+			name = "Other View Controllers";
+			sourceTree = "<group>";
+		};
 		2C31B8D217443CB9008801D4 = {
 			isa = PBXGroup;
 			children = (
+				2C8F58BA17CDC02B0092E639 /* Default.png */,
+				2C8F58B817CDC0260092E639 /* Default@2x.png */,
+				2C8F58B617CDC0130092E639 /* Default-568h@2x.png */,
+				2C8F58A917CDBC9B0092E639 /* png */,
+				2C8F58A317CD32D80092E639 /* SAO Tab Tappable Long@2x.jpg */,
+				2C8F58A417CD32D80092E639 /* SAO Tab Tappable.jpg */,
+				2C8F58A517CD32DA0092E639 /* SAO Tab Tappable @2x.jpg */,
+				2C8F58A117CC84160092E639 /* SAO Tab No Facts 320x411.jpg */,
+				2C8F587C17CC82900092E639 /* PNG */,
+				2C8F587217CC7FE40092E639 /* login */,
+				2C8F585917CC7F940092E639 /* Categories Colored */,
 				2C31B8E417443CBA008801D4 /* SAO */,
 				2C31B8DD17443CBA008801D4 /* Frameworks */,
 				2C31B8DC17443CBA008801D4 /* Products */,
@@ -73,6 +285,8 @@
 		2C31B8DD17443CBA008801D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C8F585717CC7B0A0092E639 /* MessageUI.framework */,
+				2C937FDC174472780095EFB7 /* CoreData.framework */,
 				2C31B8DE17443CBA008801D4 /* UIKit.framework */,
 				2C31B8E017443CBA008801D4 /* Foundation.framework */,
 				2C31B8E217443CBA008801D4 /* CoreGraphics.framework */,
@@ -83,11 +297,16 @@
 		2C31B8E417443CBA008801D4 /* SAO */ = {
 			isa = PBXGroup;
 			children = (
-				2C31B8ED17443CBA008801D4 /* SAOAppDelegate.h */,
-				2C31B8EE17443CBA008801D4 /* SAOAppDelegate.m */,
 				2C31B8F617443CBA008801D4 /* MainStoryboard.storyboard */,
-				2C31B8F917443CBA008801D4 /* SAOViewController.h */,
-				2C31B8FA17443CBA008801D4 /* SAOViewController.m */,
+				2C8F587917CC81300092E639 /* SAOLoginViewController.h */,
+				2C8F587A17CC81310092E639 /* SAOLoginViewController.m */,
+				2C6FBFF517BBD7C80047CC05 /* SAOTabBarController.h */,
+				2C6FBFF617BBD7C80047CC05 /* SAOTabBarController.m */,
+				2CA8A8E81757AABB0012718E /* images */,
+				2C23D8C117530E7000B82DA9 /* Other View Controllers */,
+				2C23D8BF17530CD300B82DA9 /* Other Subclasses */,
+				2C23D8BE17530CA000B82DA9 /* Profile ViewControllers */,
+				2C23D8BD17530C0700B82DA9 /* Club ViewControllers */,
 				2C31B8E517443CBA008801D4 /* Supporting Files */,
 			);
 			path = SAO;
@@ -96,15 +315,138 @@
 		2C31B8E517443CBA008801D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2C31B8ED17443CBA008801D4 /* SAOAppDelegate.h */,
+				2C31B8EE17443CBA008801D4 /* SAOAppDelegate.m */,
 				2C31B8E617443CBA008801D4 /* SAO-Info.plist */,
 				2C31B8E717443CBA008801D4 /* InfoPlist.strings */,
 				2C31B8EA17443CBA008801D4 /* main.m */,
 				2C31B8EC17443CBA008801D4 /* SAO-Prefix.pch */,
-				2C31B8F017443CBA008801D4 /* Default.png */,
-				2C31B8F217443CBA008801D4 /* Default@2x.png */,
-				2C31B8F417443CBA008801D4 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C6FBFE917BB9EEC0047CC05 /* stars */ = {
+			isa = PBXGroup;
+			children = (
+				2C6FBFEA17BB9EFB0047CC05 /* EmptyStar.png */,
+				2C6FBFEB17BB9EFB0047CC05 /* EmptyStarNoShadow.png */,
+				2C6FBFEC17BB9EFB0047CC05 /* FilledStar.png */,
+				2C6FBFED17BB9EFB0047CC05 /* FilledStarNoShadow.png */,
+			);
+			name = stars;
+			sourceTree = "<group>";
+		};
+		2C8F585917CC7F940092E639 /* Categories Colored */ = {
+			isa = PBXGroup;
+			children = (
+				2C8F585A17CC7F940092E639 /* Academic cell.png */,
+				2C8F585B17CC7F940092E639 /* Academic cell@2x.png */,
+				2C8F585C17CC7F940092E639 /* Athletic cell.png */,
+				2C8F585D17CC7F940092E639 /* Athletic cell@2x.png */,
+				2C8F585E17CC7F940092E639 /* Cultural cell.png */,
+				2C8F585F17CC7F940092E639 /* Cultural cell@2x.png */,
+				2C8F586017CC7F940092E639 /* Performing Arts cell.png */,
+				2C8F586117CC7F940092E639 /* Performing Arts cell@2x.png */,
+				2C8F586217CC7F940092E639 /* Social Service cell.png */,
+				2C8F586317CC7F940092E639 /* Social Service cell@2x.png */,
+				2C8F586417CC7F940092E639 /* Special Interest cell.png */,
+				2C8F586517CC7F940092E639 /* Special Interest cell@2x.png */,
+			);
+			name = "Categories Colored";
+			path = "appData/Categories Colored";
+			sourceTree = "<group>";
+		};
+		2C8F587217CC7FE40092E639 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				2C8F587317CC7FE50092E639 /* Login@2x.jpg */,
+				2C8F587417CC7FE50092E639 /* Login Long.jpg */,
+				2C8F587517CC7FE50092E639 /* Login.jpg */,
+			);
+			name = login;
+			path = appData/login;
+			sourceTree = "<group>";
+		};
+		2C8F587C17CC82900092E639 /* PNG */ = {
+			isa = PBXGroup;
+			children = (
+				2C8F587D17CC82900092E639 /* Academic-tall.png */,
+				2C8F587E17CC82900092E639 /* Academic.png */,
+				2C8F587F17CC82900092E639 /* Academic@2x.png */,
+				2C8F588017CC82900092E639 /* Athletic-tall.png */,
+				2C8F588117CC82900092E639 /* Athletic.png */,
+				2C8F588217CC82900092E639 /* Athletic@2x.png */,
+				2C8F588317CC82900092E639 /* Cultural-tall.png */,
+				2C8F588417CC82900092E639 /* Cultural.png */,
+				2C8F588517CC82900092E639 /* Cultural@2x.png */,
+				2C8F588617CC82900092E639 /* Performing Arts-tall.png */,
+				2C8F588717CC82900092E639 /* Performing Arts.png */,
+				2C8F588817CC82900092E639 /* Performing Arts@2x.png */,
+				2C8F588917CC82900092E639 /* Social Service-tall.png */,
+				2C8F588A17CC82900092E639 /* Social Service.png */,
+				2C8F588B17CC82900092E639 /* Social Service@2x.png */,
+				2C8F588C17CC82900092E639 /* Special Interest-tall.png */,
+				2C8F588D17CC82900092E639 /* Special Interest.png */,
+				2C8F588E17CC82900092E639 /* Special Interest@2x.png */,
+			);
+			name = PNG;
+			path = SAO/PNG;
+			sourceTree = "<group>";
+		};
+		2C8F58A917CDBC9B0092E639 /* png */ = {
+			isa = PBXGroup;
+			children = (
+				2C8F58AA17CDBC9C0092E639 /* SAO-Tab-Long-png.png */,
+				2C8F58AB17CDBC9C0092E639 /* SAO-Tab-png.png */,
+				2C8F58AC17CDBC9C0092E639 /* SAO-Tab-png@2x.png */,
+			);
+			name = png;
+			path = appData/SAO_Homepage/png;
+			sourceTree = "<group>";
+		};
+		2CA8A8E81757AABB0012718E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2C6FBFE917BB9EEC0047CC05 /* stars */,
+				2C6FBFE417BB77FC0047CC05 /* SAO Tab No Facts 320x650.jpg */,
+				2CA8A91B17581F8A0012718E /* Icons */,
+				2CA8A91E17581F8B0012718E /* TabBarIcons */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		2CA8A91B17581F8A0012718E /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				2CA8A93F175820C10012718E /* Icon@2x.png */,
+				2CA8A93D175820B70012718E /* Icon.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		2CA8A91E17581F8B0012718E /* TabBarIcons */ = {
+			isa = PBXGroup;
+			children = (
+				2CF8BA31175DA64900B57F36 /* Home */,
+				2CA8A91F17581F8B0012718E /* clubs tab bar icon.png */,
+				2CA8A92017581F8B0012718E /* clubs tab bar icon@2x.png */,
+				2CA8A92117581F8B0012718E /* maps tab bar icon.png */,
+				2CA8A92217581F8B0012718E /* maps tab bar icon@2x.png */,
+				2CA8A92317581F8B0012718E /* profile tab bar icon.png */,
+				2CA8A92417581F8B0012718E /* profile tab bar icon@2x.png */,
+				2CA8A92517581F8B0012718E /* SAO tab bar icon.png */,
+				2CA8A92617581F8B0012718E /* SAO tab bar icon@2x.png */,
+			);
+			path = TabBarIcons;
+			sourceTree = "<group>";
+		};
+		2CF8BA31175DA64900B57F36 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2CF8BA32175DA64900B57F36 /* Home.png */,
+				2CF8BA33175DA64900B57F36 /* Home@2x.png */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,10 +502,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C31B8E917443CBA008801D4 /* InfoPlist.strings in Resources */,
-				2C31B8F117443CBA008801D4 /* Default.png in Resources */,
-				2C31B8F317443CBA008801D4 /* Default@2x.png in Resources */,
-				2C31B8F517443CBA008801D4 /* Default-568h@2x.png in Resources */,
 				2C31B8F817443CBA008801D4 /* MainStoryboard.storyboard in Resources */,
+				2CA8A93517581F8B0012718E /* clubs tab bar icon.png in Resources */,
+				2CA8A93617581F8B0012718E /* clubs tab bar icon@2x.png in Resources */,
+				2CA8A93717581F8B0012718E /* maps tab bar icon.png in Resources */,
+				2CA8A93817581F8B0012718E /* maps tab bar icon@2x.png in Resources */,
+				2CA8A93917581F8B0012718E /* profile tab bar icon.png in Resources */,
+				2CA8A93A17581F8B0012718E /* profile tab bar icon@2x.png in Resources */,
+				2CA8A93B17581F8B0012718E /* SAO tab bar icon.png in Resources */,
+				2CA8A93C17581F8B0012718E /* SAO tab bar icon@2x.png in Resources */,
+				2CA8A93E175820B70012718E /* Icon.png in Resources */,
+				2CA8A940175820C20012718E /* Icon@2x.png in Resources */,
+				2CF8BA34175DA64900B57F36 /* Home.png in Resources */,
+				2CF8BA35175DA64900B57F36 /* Home@2x.png in Resources */,
+				2C6FBFE517BB77FC0047CC05 /* SAO Tab No Facts 320x650.jpg in Resources */,
+				2C6FBFEE17BB9EFB0047CC05 /* EmptyStar.png in Resources */,
+				2C6FBFEF17BB9EFB0047CC05 /* EmptyStarNoShadow.png in Resources */,
+				2C6FBFF017BB9EFB0047CC05 /* FilledStar.png in Resources */,
+				2C6FBFF117BB9EFB0047CC05 /* FilledStarNoShadow.png in Resources */,
+				2C8F586617CC7F940092E639 /* Academic cell.png in Resources */,
+				2C8F586717CC7F940092E639 /* Academic cell@2x.png in Resources */,
+				2C8F586817CC7F940092E639 /* Athletic cell.png in Resources */,
+				2C8F586917CC7F940092E639 /* Athletic cell@2x.png in Resources */,
+				2C8F586A17CC7F940092E639 /* Cultural cell.png in Resources */,
+				2C8F586B17CC7F940092E639 /* Cultural cell@2x.png in Resources */,
+				2C8F586C17CC7F940092E639 /* Performing Arts cell.png in Resources */,
+				2C8F586D17CC7F940092E639 /* Performing Arts cell@2x.png in Resources */,
+				2C8F586E17CC7F940092E639 /* Social Service cell.png in Resources */,
+				2C8F586F17CC7F940092E639 /* Social Service cell@2x.png in Resources */,
+				2C8F587017CC7F940092E639 /* Special Interest cell.png in Resources */,
+				2C8F587117CC7F940092E639 /* Special Interest cell@2x.png in Resources */,
+				2C8F587617CC7FE50092E639 /* Login@2x.jpg in Resources */,
+				2C8F587717CC7FE50092E639 /* Login Long.jpg in Resources */,
+				2C8F587817CC7FE50092E639 /* Login.jpg in Resources */,
+				2C8F588F17CC82900092E639 /* Academic-tall.png in Resources */,
+				2C8F589017CC82900092E639 /* Academic.png in Resources */,
+				2C8F589117CC82900092E639 /* Academic@2x.png in Resources */,
+				2C8F589217CC82900092E639 /* Athletic-tall.png in Resources */,
+				2C8F589317CC82900092E639 /* Athletic.png in Resources */,
+				2C8F589417CC82900092E639 /* Athletic@2x.png in Resources */,
+				2C8F589517CC82900092E639 /* Cultural-tall.png in Resources */,
+				2C8F589617CC82900092E639 /* Cultural.png in Resources */,
+				2C8F589717CC82900092E639 /* Cultural@2x.png in Resources */,
+				2C8F589817CC82900092E639 /* Performing Arts-tall.png in Resources */,
+				2C8F589917CC82900092E639 /* Performing Arts.png in Resources */,
+				2C8F589A17CC82900092E639 /* Performing Arts@2x.png in Resources */,
+				2C8F589B17CC82900092E639 /* Social Service-tall.png in Resources */,
+				2C8F589C17CC82900092E639 /* Social Service.png in Resources */,
+				2C8F589D17CC82900092E639 /* Social Service@2x.png in Resources */,
+				2C8F589E17CC82900092E639 /* Special Interest-tall.png in Resources */,
+				2C8F589F17CC82900092E639 /* Special Interest.png in Resources */,
+				2C8F58A017CC82900092E639 /* Special Interest@2x.png in Resources */,
+				2C8F58A217CC84160092E639 /* SAO Tab No Facts 320x411.jpg in Resources */,
+				2C8F58A617CD32DD0092E639 /* SAO Tab Tappable Long@2x.jpg in Resources */,
+				2C8F58A717CD32DD0092E639 /* SAO Tab Tappable.jpg in Resources */,
+				2C8F58A817CD32DD0092E639 /* SAO Tab Tappable @2x.jpg in Resources */,
+				2C8F58AD17CDBC9C0092E639 /* SAO-Tab-Long-png.png in Resources */,
+				2C8F58AE17CDBC9C0092E639 /* SAO-Tab-png.png in Resources */,
+				2C8F58AF17CDBC9C0092E639 /* SAO-Tab-png@2x.png in Resources */,
+				2C8F58B717CDC0130092E639 /* Default-568h@2x.png in Resources */,
+				2C8F58B917CDC0260092E639 /* Default@2x.png in Resources */,
+				2C8F58BB17CDC02B0092E639 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +576,17 @@
 				2C31B8EB17443CBA008801D4 /* main.m in Sources */,
 				2C31B8EF17443CBA008801D4 /* SAOAppDelegate.m in Sources */,
 				2C31B8FB17443CBA008801D4 /* SAOViewController.m in Sources */,
+				2C31B90617445367008801D4 /* SAOClubTableViewController.m in Sources */,
+				2C937FEF1746A05C0095EFB7 /* CSVParser.m in Sources */,
+				2C8C9664174BCFBB000416F1 /* SAOClubDataViewController.m in Sources */,
+				2C8C9667174BCFE8000416F1 /* SAOProfileViewController.m in Sources */,
+				2C23D8C417530F6D00B82DA9 /* SAOClubMapViewController.m in Sources */,
+				2C23D8CA175317A200B82DA9 /* SAOEditProfileViewController.m in Sources */,
+				2C3EDEE217B1CC6C001B7105 /* SAOClubNavigationController.m in Sources */,
+				2C6FBFE817BB84020047CC05 /* SAOButton.m in Sources */,
+				2C6FBFF417BBCD030047CC05 /* SAOTappableView.m in Sources */,
+				2C6FBFF717BBD7C90047CC05 /* SAOTabBarController.m in Sources */,
+				2C8F587B17CC81310092E639 /* SAOLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +709,7 @@
 				2C31B90017443CBA008801D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
