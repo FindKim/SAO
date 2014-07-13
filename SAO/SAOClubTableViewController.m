@@ -97,8 +97,9 @@
 	[cache removeAllCachedResponses];
 
 	NSString *urlAddress = @"http://www.nd.edu/~sao/SAO_App/clubs.csv";
+//    NSString *urlAddress = @"http://www3.nd.edu/~kngo/clubs.csv";
 	NSURL *url = [NSURL URLWithString:urlAddress];
-	
+
 	SAOTabBarController * tabBarController = (SAOTabBarController*)self.tabBarController;
 	if (tabBarController.parser.isParsing) {
 		return;

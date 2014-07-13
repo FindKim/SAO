@@ -483,12 +483,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Club Name" id="Eht-xB-hci">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="H6b-mS-fa8">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="H6b-mS-fa8">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="LMS-Hs-LC8" id="YDq-EE-YTM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="FilledStarNoShadow.png" style="plain" id="FEj-Kp-3FF">
+                        <barButtonItem key="rightBarButtonItem" image="FilledStar.png" style="plain" id="FEj-Kp-3FF">
                             <connections>
                                 <action selector="favoriteCurrentClub:" destination="LMS-Hs-LC8" id="pEx-HL-t2b"/>
                             </connections>
@@ -553,7 +553,7 @@
     </scenes>
     <resources>
         <image name="Academic.png" width="280" height="121"/>
-        <image name="FilledStarNoShadow.png" width="40" height="40"/>
+        <image name="FilledStar.png" width="30" height="30"/>
         <image name="Home.png" width="30" height="30"/>
         <image name="SAO Tab No Facts 320x411.jpg" width="320" height="411"/>
         <image name="clubs tab bar icon.png" width="30" height="30"/>
@@ -566,7 +566,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Yb9-1b-Y8j"/>
         <segue reference="fDC-li-3wg"/>
+        <segue reference="Yb9-1b-Y8j"/>
     </inferredMetricsTieBreakers>
 </document>

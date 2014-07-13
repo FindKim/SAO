@@ -43,7 +43,10 @@
 
     // Class category
     // [Ff]: freshman; [So]: sophomore; [Jj]: junior; [Ss]enior
-    if ([class rangeOfString:@"f" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+    if (class == NULL) {
+        class = @"";
+
+    } else if ([class rangeOfString:@"f" options:NSCaseInsensitiveSearch].location != NSNotFound) {
         class = @"Fr";
 
     } else if ([class rangeOfString:@"so" options:NSCaseInsensitiveSearch].location != NSNotFound) {
