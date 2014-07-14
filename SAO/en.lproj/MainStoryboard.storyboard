@@ -304,18 +304,19 @@
                     <tabBarItem key="tabBarItem" title="MAP" image="maps tab bar icon.png" id="4x7-h6-Rze"/>
                     <connections>
                         <outlet property="mapScrollView" destination="nEK-ee-urJ" id="MeX-uh-MMP"/>
+                        <segue destination="A4d-aX-Inf" kind="modal" identifier="mapButtonToTableView" customClass="UIStoryboardPopoverSegue" id="xYQ-dh-Xqm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWk-4C-acK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="1704"/>
+            <point key="canvasLocation" x="225" y="1240"/>
         </scene>
         <!--Club Table View Controller - CLUBS-->
         <scene sceneID="cbM-HG-6wV">
             <objects>
                 <tableViewController id="A4d-aX-Inf" customClass="SAOClubTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xzd-U0-nJZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" id="C5K-Fc-sCt">
@@ -566,7 +567,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fDC-li-3wg"/>
-        <segue reference="Yb9-1b-Y8j"/>
+        <segue reference="xYQ-dh-Xqm"/>
+        <segue reference="cEr-ho-12h"/>
+        <segue reference="tef-tn-5k1"/>
     </inferredMetricsTieBreakers>
 </document>
