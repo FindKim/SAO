@@ -19,6 +19,16 @@
 
 @implementation SAOClubTableViewController
 
+- (void) receiveTestNotification:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"TestNotification"])
+        NSLog (@"Successfully received the test notification!");
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
@@ -42,10 +52,17 @@
 {
 	[self refreshClubs];
 	[super viewWillAppear:animated];
+    
+    // Receives notification from map button
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveTestNotification:)
+                                                 name:@"TestNotification"
+                                               object:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
 								 sender:(id)sender {
+    
 	if ([segue.identifier isEqualToString:@"Club Detail Segue"]) {
 		SAOClubNavigationController *destViewController = segue.destinationViewController;
 		

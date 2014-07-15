@@ -20,16 +20,30 @@
 
 @implementation SAOClubMapViewController
 
+//- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue
+//{
+//    
+//}
+
+
 - (void)didTouchDownOnButton:(UIButton *)button
 {
     // Highlight on touch down
     NSLog(@"Button %ld", (long)button.tag);
 }
 
+
 -(void) handleDoubleTap: (UIGestureRecognizer *) gestureRecognizer
 {
     NSLog(@"Double tap working");
-    [self performSegueWithIdentifier:@"mapButtonToTableView" sender:self];
+
+    // Passing data between views
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"TestNotification"
+     object:self];
+    
+    [self.tabBarController setSelectedIndex:2];
+//    [self performSegueWithIdentifier:@"mapButtonToTableView" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

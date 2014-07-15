@@ -18,4 +18,15 @@
 @implementation SAOLoginViewController
 
 
+// Used to pass data between tabs
+static id gGlobalInstanceTabBar = nil;
++ (UITabBarController *) tabBarController
+{
+    if (!gGlobalInstanceTabBar)
+    {
+        gGlobalInstanceTabBar = [[UITabBarController alloc] init];
+    }
+    return gGlobalInstanceTabBar;
+}
+
 @end
