@@ -25,8 +25,13 @@
     // unless you use this method for observation of other notifications
     // as well.
     
-    if ([[notification name] isEqualToString:@"TestNotification"])
+    if ([[notification name] isEqualToString:@"TestNotification"]) {
         NSLog (@"Successfully received the test notification!");
+        CGRect sectionRect = [self.tableView rectForSection: 2];
+                              //indexOfSectionToScrollTo];
+        sectionRect.size.height = self.tableView.frame.size.height;
+        [self.tableView scrollRectToVisible:sectionRect animated:YES];
+    }
 }
 
 - (void)viewDidLoad
@@ -45,19 +50,24 @@
 	[(SAOTabBarController*)self.tabBarController setClubs:nil];
 	[self.tableView reloadData];
 	[self refreshClubs];
-
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-	[self refreshClubs];
-	[super viewWillAppear:animated];
     
     // Receives notification from map button
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"TestNotification"
                                                object:nil];
+}
+
+-(void)viewDidUnload
+{
+    // This will remove this object from all notifications
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+	[self refreshClubs];
+	[super viewWillAppear:animated];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue

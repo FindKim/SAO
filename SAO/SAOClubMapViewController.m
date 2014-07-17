@@ -40,7 +40,7 @@
     // Passing data between views
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"TestNotification"
-     object:self];
+     object:nil];
     
     [self.tabBarController setSelectedIndex:2];
 //    [self performSegueWithIdentifier:@"mapButtonToTableView" sender:self];
@@ -48,15 +48,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"mapButtonToTableView"])
-    {
-        NSLog(@"attempting segue");
+//    if ([[segue identifier] isEqualToString:@"mapButtonToTableView"])
+//    {
+//        NSLog(@"attempting segue");
 //        TranslationQuizAssociateVC *translationQuizAssociateVC = [segue destinationViewController];
 //        translationQuizAssociateVC.nodeID = self.nodeID; //--pass nodeID from ViewNodeViewController
 //        translationQuizAssociateVC.contentID = self.contentID;
 //        translationQuizAssociateVC.index = self.index;
 //        translationQuizAssociateVC.content = self.content;
-    }
+//    }
 }
 
 -(void)viewDidLoad {
