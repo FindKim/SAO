@@ -21,17 +21,22 @@
 
 - (void) receiveTestNotification:(NSNotification *) notification
 {
-    // [notification name] should always be @"TestNotification"
-    // unless you use this method for observation of other notifications
-    // as well.
-    
-    if ([[notification name] isEqualToString:@"TestNotification"]) {
-        NSLog (@"Successfully received the test notification!");
-        CGRect sectionRect = [self.tableView rectForSection: 2];
-                              //indexOfSectionToScrollTo];
-        sectionRect.size.height = self.tableView.frame.size.height;
-        [self.tableView scrollRectToVisible:sectionRect animated:YES];
+
+    NSLog (@"Successfully received the category notification!");
+    NSLog(@"The notification is %@", notification);
+    int section = 0;
+    if ([[notification name] isEqualToString:@"Academic"]) {
+        section = 0;
+    } else if ([[notification name] isEqualToString:@"Athletic"]) {
+        section = 1;
+    } else if ([[notification name] isEqualToString:@"Cultural"]) {
+        section = 2;
     }
+    
+    // Scrolls to section
+    CGRect sectionRect = [self.tableView rectForSection: section];
+    sectionRect.size.height = self.tableView.frame.size.height;
+        [self.tableView scrollRectToVisible:sectionRect animated:YES];
 }
 
 - (void)viewDidLoad
@@ -51,11 +56,10 @@
 	[self.tableView reloadData];
 	[self refreshClubs];
     
-    // Receives notification from map button
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveTestNotification:)
-                                                 name:@"TestNotification"
-                                               object:nil];
+    // Receives notification to scroll to section from map buttons
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Academic" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Athletic" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Cultural" object:nil];
 }
 
 -(void)viewDidUnload

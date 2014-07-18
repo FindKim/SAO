@@ -13,5 +13,5 @@
 @property (nonatomic, strong) UIImage * mapImage;
 
 -(void)resetMapScrollViewWithNewImage;
-- (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer;
+//- (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer;
 @end

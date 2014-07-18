@@ -20,11 +20,6 @@
 
 @implementation SAOClubMapViewController
 
-//- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue
-//{
-//    
-//}
-
 
 - (void)didTouchDownOnButton:(UIButton *)button
 {
@@ -33,30 +28,27 @@
 }
 
 
--(void) handleDoubleTap: (UIGestureRecognizer *) gestureRecognizer
+-(void) handleDoubleTap: (UIButton *)button//(UIGestureRecognizer *) gestureRecognizer
 {
     NSLog(@"Double tap working");
-
-    // Passing data between views
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"TestNotification"
-     object:nil];
     
-    [self.tabBarController setSelectedIndex:2];
-//    [self performSegueWithIdentifier:@"mapButtonToTableView" sender:self];
-}
+    NSString *clubCategory;
+    NSInteger clubCategoryID = button.tag;
+    
+    if (clubCategoryID == 0) {
+        clubCategory = @"Academic";
+    } else if (clubCategoryID == 1) {
+        clubCategory = @"Athletic";
+    } else if (clubCategoryID == 2) {
+        clubCategory = @"Cultural";
+    }
+    NSLog(@"Sending category %@", clubCategory);
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-//    if ([[segue identifier] isEqualToString:@"mapButtonToTableView"])
-//    {
-//        NSLog(@"attempting segue");
-//        TranslationQuizAssociateVC *translationQuizAssociateVC = [segue destinationViewController];
-//        translationQuizAssociateVC.nodeID = self.nodeID; //--pass nodeID from ViewNodeViewController
-//        translationQuizAssociateVC.contentID = self.contentID;
-//        translationQuizAssociateVC.index = self.index;
-//        translationQuizAssociateVC.content = self.content;
-//    }
+    // Sends notification to ClubsTableView
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName: clubCategory object:nil];
+    // Changes tabs to ClubsTableView
+    [self.tabBarController setSelectedIndex:2];
 }
 
 -(void)viewDidLoad {
@@ -74,106 +66,12 @@
 	
 	//request for the map from online
 	[self requestNewMap];
-    NSLog(@"when does this occur?");
-    [self.mapScrollView bringSubviewToFront:self.testButton];
-    NSLog(@"button briefly to front");
-	
 }
 
 -(void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
 }
 
-/*
 //////Helper Methods//////
--(NSMutableArray *) locations {
-    
-    // Json Data
-    if (!_locations) {
-        NSData* locationData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.dataFileName ofType:@"json"]];
-        
-        NSError *error;
-        NSArray *tempLocation;
-        tempLocation = [NSJSONSerialization JSONObjectWithData:locationData options:0 error:&error];
-        int i = 0;
-        NSMutableArray *mutableLocation = [tempLocation mutableCopy];
-        for (NSDictionary *dict in tempLocation) {
-            NSMutableDictionary *mutableDictionary = [dict mutableCopy];
-            [mutableDictionary setObject:<#(id)#> forKey:<#(id<NSCopying>)#>];
-            mutableLocation[i] = mutableDictionary;
-            i++;
-        }
-        _locations = [mutableLocation copy];
-        if (error) NSLog(@"JSON error: %@", error);
-    }
-    return _locations;
-}
-
--(NSString *) getCategoryKey {
-    // Loops through NSArray locations to find if tapped CGPoint is within which category
-    //
-    NSString *category;
-    for (NSDictionary *locationDict in self.locations) {
-        
-        if ([locationDict[] isEqualToString: ) {
-            category = [];
-        }
-    }
-    
-}
-
-             
-
--(float) distanceBetweenPoints:(CGPoint) touched and: (CGPoint) data {
-     return sqrtf(powf((touched.x - data.x), 2) + powf((touched.y - data.y), 2));
- }
-
-
--(CGPoint) getCategoryLocation:(CGPoint) touched {
-    CGPoint point;
-    float min = INFINITY;
-    float distance;
-    for (NSDictionary *locationDict in self.locations) {
-        CGPoint data = CGPointMake([locationDict[@"x"] floatValue], [locationDict[@"y"] floatValue]);
-        distance = [self distanceBetweenPoints:touched and: data];
-        if (distance < min) {
-            min = distance;
-            point = data;
-        }
-    }
-    return point;
-}
-
--(BOOL) isClubHere:(CGPoint) touched
-{
-    BOOL pointIsHere;
-    float min = INFINITY;
-    float distance;
-    for(NSDictionary *locationDict in self.locations) {
-        CGPoint data = CGPointMake([locationDict[@"x"] floatValue], [locationDict[@"y"] floatValue]);
-        distance = [self distanceBetweenPoints:touched and: data];
-        if (distance < min) {
-            min = distance;
-            if (![locationDict[])
-        }
-    }
-}
-
--(IBAction)doubleTap:(UITapGestureRecognizer *) sender {
-    CGPoint touched = [sender locationInView:self.container];
-    CGPoint scaledTouch;
-    
-    scaledTouch.x = (8.0/320.0)*(touched.x);
-    scaledTouch.y = (8.0/320.0)*(touched.y);
-    
-    // 
-    CGPoint point = [self getCategoryLocation:scaledTouch];
-    
-    // Get key from
-    NSString *category = [self getCategoryKey];
-    
-    // Use key to segue back to corresponding category in the club list table
-}
-*/
 
 -(void)resetMapScrollViewWithNewImage
 {
@@ -197,7 +95,6 @@
 																			 self.mapImage.size.width,
 																			 self.mapImage.size.height);
 	[self.mapScrollView addSubview:self.mapImageView];
-    NSLog(@"added image again");
 	self.mapScrollView.contentSize = self.mapImage.size;
 //	
 //	CGFloat offsetX = 	(self.mapScrollView.bounds.size.width - self.mapScrollView.contentSize.width) * 0.5;
@@ -220,25 +117,42 @@
 
 -(void) addCategoryButtonsToScrollView
 {
-
-    //double scale = MAX(self.mapScrollView.frame.size.width / self.mapImage.size.width,
-    //                   self.mapScrollView.frame.size.height / self.mapImage.size.height);
-    
     // x, y, width, height
-    CGRect Frame= CGRectMake(370, 650, 900, 100);
-    
-    UIButton *Button = [UIButton buttonWithType:UIButtonTypeCustom];
-    Button.frame = Frame;
-	
     UIImage *Img = [UIImage imageNamed:@"FilledStar.png"];
-    [Button setBackgroundImage:Img forState:UIControlStateNormal];
     
-    self.testButton = Button;
+    UIButton *Academic = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect academicFrame = CGRectMake(100, 750, 1400, 40);
+    Academic.frame = academicFrame;
+    Academic.tag = 0;
+//    [Academic setBackgroundImage:Img forState:UIControlStateNormal];
+    [Academic addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+    [self.mapImageView addSubview:Academic];
+    [self.mapImageView bringSubviewToFront:Academic];
+    
+    UIButton *Athletic = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect athleticFrame = CGRectMake(400, 450, 800, 50);
+    Athletic.frame = athleticFrame;
+    Athletic.tag = 1;
+//    [Athletic setBackgroundImage:Img forState:UIControlStateNormal];
+    [Athletic addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+    [self.mapImageView addSubview:Athletic];
+    [self.mapImageView bringSubviewToFront:Athletic];
+    
+    UIButton *Cultural = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect culturalFrame = CGRectMake(370, 650, 1000, 40);
+    Cultural.frame = culturalFrame;
+    Cultural.tag = 2;
+//    [Cultural setBackgroundImage:Img forState:UIControlStateNormal];
+    [Cultural addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+    [self.mapImageView addSubview:Cultural];
+    [self.mapImageView bringSubviewToFront:Cultural];
+
+//    self.testButton = culturalButton;
 //    [self.testButton addTarget:self action:@selector(didTouchDownonButton:) forControlEvents:UIControlEventTouchDown];
-    [self.testButton addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+//    [self.testButton addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
     
-    [self.mapImageView addSubview: self.testButton];
-    [self.mapImageView bringSubviewToFront:self.testButton];
+//    [self.mapImageView addSubview: self.testButton];
+//    [self.mapImageView bringSubviewToFront:self.testButton];
 }
 
 
