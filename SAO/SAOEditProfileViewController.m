@@ -38,6 +38,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+    
 	self.nameTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:NAME];
 	self.majorTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:MAJOR];
     self.classTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:CLASS];
