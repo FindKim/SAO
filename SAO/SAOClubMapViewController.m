@@ -118,7 +118,7 @@
 -(void) addCategoryButtonsToScrollView
 {
     // x, y, width, height
-    UIImage *Img = [UIImage imageNamed:@"FilledStar.png"];
+//    UIImage *Img = [UIImage imageNamed:@"FilledStar.png"];
     
     UIButton *Academic = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect academicFrame = CGRectMake(100, 750, 1400, 40);
@@ -182,7 +182,7 @@
 	[(SAOTabBarController*)self.tabBarController setReceivedData: [[NSMutableData alloc] init]];
 	
 	//make the request in the background
-	[[NSURLConnection alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.nd.edu/~sao/SAO_App/SAO_Map.jpg"]] delegate:(SAOTabBarController*)self.tabBarController];
+//	[[NSURLConnection alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.nd.edu/~sao/SAO_App/SAO_Map.jpg"]] delegate:(SAOTabBarController*)self.tabBarController];
     NSLog(@"this is trying to dl image");
     
 }

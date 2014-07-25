@@ -103,30 +103,31 @@
 	 
 	 */
 	
-	NSArray * tappableViewArray = @[[[SAOTappableView alloc] initWithFrame:CGRectMake(36, 450, 36, 36)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(36, 494, 36, 36)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(36, 539, 36, 36)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(36, 584, 36, 36)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(174, 450, 36, 36)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(174, 494, 36, 36)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(174, 539, 36, 36)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(174, 584, 36, 36)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(196, 43, 46, 46)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(247, 43, 46, 46)],
-																 [[SAOTappableView alloc] initWithFrame:CGRectMake(30, 39, 75, 55)]];
+	NSArray * tappableViewArray = @[[[SAOTappableView alloc] initWithFrame:CGRectMake(36, 430, 36, 36)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(36, 474, 36, 36)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(36, 519, 36, 36)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(36, 564, 36, 36)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(174, 430, 36, 36)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(174, 474, 36, 36)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(174, 519, 36, 36)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(174, 564, 36, 36)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(196, 23, 46, 46)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(247, 23, 46, 46)],
+																 [[SAOTappableView alloc] initWithFrame:CGRectMake(30, 9, 75, 55)]];
 	if (screenBounds.size.height == 568)
 	{
-		tappableViewArray = @[[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 540, 36, 36)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 582, 36, 36)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 625, 36, 36)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 666, 36, 36)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(171, 540, 36, 36)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(171, 582, 36, 36)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(171, 625, 36, 36)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(171, 666, 36, 36)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(188, 50, 51, 51)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(246, 50, 51, 51)],
-												[[SAOTappableView alloc] initWithFrame:CGRectMake(38, 50, 80, 60)]];
+        NSLog(@"IN HERE");
+		tappableViewArray = @[[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 520, 36, 36)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 562, 36, 36)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 605, 36, 36)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 646, 36, 36)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(171, 520, 36, 36)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(171, 562, 36, 36)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(171, 605, 36, 36)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(171, 646, 36, 36)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(188, 30, 51, 51)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(246, 30, 51, 51)],
+												[[SAOTappableView alloc] initWithFrame:CGRectMake(38, 20, 80, 60)]];
 		
 	}
 	NSArray * linkArray = @[@"http://www.nd.edu/",
