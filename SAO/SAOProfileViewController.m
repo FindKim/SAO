@@ -112,9 +112,9 @@
 {
 	if ([segue.identifier isEqualToString:@"Club Detail Segue"]) {
 		SAOClubNavigationController *destViewController = segue.destinationViewController;
-		
+        
 		NSIndexPath *indexPath = nil;
-		
+        
 		indexPath = [self.favoriteClubsTableView indexPathForSelectedRow];
 		destViewController.clubName = [(NSMutableDictionary*)[self.favoriteClubs objectAtIndex:indexPath.row] valueForKey:@"Name"];
 		destViewController.clubDictionary = [(NSMutableDictionary*)[self.favoriteClubs objectAtIndex:indexPath.row] copy];

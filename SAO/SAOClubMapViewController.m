@@ -12,6 +12,7 @@
 @interface SAOClubMapViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mapScrollView;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic, strong) UIImageView *mapImageView;
 @property (weak, nonatomic) UIButton *testButton;
 @property (nonatomic, strong) UIButton *buttonContainer;
@@ -43,7 +44,7 @@
         clubCategory = @"Cultural";
     }
     NSLog(@"Sending category %@", clubCategory);
-
+    
     // Sends notification to ClubsTableView
     [[NSNotificationCenter defaultCenter]
      postNotificationName: clubCategory object:nil];
@@ -53,6 +54,15 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    // Add activity indicator to load map
+    CGRect frame = CGRectMake (120.0, 185.0, 80, 80);
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:frame];
+    self.activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:self.activityIndicatorView];
+    self.activityIndicatorView.center = self.view.center;
 }
 
 -(void) viewDidLayoutSubviews
@@ -63,7 +73,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	
+    
 	//request for the map from online
 	[self requestNewMap];
 }
@@ -76,33 +86,33 @@
 -(void)resetMapScrollViewWithNewImage
 {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+    
 	double scale = MAX(self.mapScrollView.frame.size.width / self.mapImage.size.width,
-										 self.mapScrollView.frame.size.height / self.mapImage.size.height);
-	
+                       self.mapScrollView.frame.size.height / self.mapImage.size.height);
+    
 	self.mapScrollView.minimumZoomScale = scale;
 	self.mapScrollView.delegate = self;
-	
+    
 	for (UIView * subView in [self.mapScrollView subviews])
 	{
-    [subView removeFromSuperview];
+        [subView removeFromSuperview];
 	}
-	
+    
 	self.mapImageView = [[UIImageView alloc] initWithImage:self.mapImage];
-	
+    
 	self.mapImageView.frame = CGRectMake(0,
-																			 0,
-																			 self.mapImage.size.width,
-																			 self.mapImage.size.height);
+                                         0,
+                                         self.mapImage.size.width,
+                                         self.mapImage.size.height);
 	[self.mapScrollView addSubview:self.mapImageView];
 	self.mapScrollView.contentSize = self.mapImage.size;
-//	
-//	CGFloat offsetX = 	(self.mapScrollView.bounds.size.width - self.mapScrollView.contentSize.width) * 0.5;
-//	
-//	CGFloat offsetY =	(self.mapScrollView.bounds.size.height - self.mapScrollView.contentSize.height) * 0.5;
-//	
-//	self.mapImageView.center = CGPointMake(self.mapScrollView.contentSize.width * 0.5 + offsetX,
-//															 self.mapScrollView.contentSize.height * 0.5 + offsetY);
+    //
+    //	CGFloat offsetX = 	(self.mapScrollView.bounds.size.width - self.mapScrollView.contentSize.width) * 0.5;
+    //
+    //	CGFloat offsetY =	(self.mapScrollView.bounds.size.height - self.mapScrollView.contentSize.height) * 0.5;
+    //
+    //	self.mapImageView.center = CGPointMake(self.mapScrollView.contentSize.width * 0.5 + offsetX,
+    //															 self.mapScrollView.contentSize.height * 0.5 + offsetY);
 	self.mapScrollView.zoomScale = scale;
     
     [self addCategoryButtonsToScrollView];
@@ -118,13 +128,13 @@
 -(void) addCategoryButtonsToScrollView
 {
     // x, y, width, height
-//    UIImage *Img = [UIImage imageNamed:@"FilledStar.png"];
+    //    UIImage *Img = [UIImage imageNamed:@"FilledStar.png"];
     
     UIButton *Academic = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect academicFrame = CGRectMake(100, 750, 1400, 40);
     Academic.frame = academicFrame;
     Academic.tag = 0;
-//    [Academic setBackgroundImage:Img forState:UIControlStateNormal];
+    //    [Academic setBackgroundImage:Img forState:UIControlStateNormal];
     [Academic addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
     [self.mapImageView addSubview:Academic];
     [self.mapImageView bringSubviewToFront:Academic];
@@ -133,7 +143,7 @@
     CGRect athleticFrame = CGRectMake(400, 450, 800, 50);
     Athletic.frame = athleticFrame;
     Athletic.tag = 1;
-//    [Athletic setBackgroundImage:Img forState:UIControlStateNormal];
+    //    [Athletic setBackgroundImage:Img forState:UIControlStateNormal];
     [Athletic addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
     [self.mapImageView addSubview:Athletic];
     [self.mapImageView bringSubviewToFront:Athletic];
@@ -142,17 +152,10 @@
     CGRect culturalFrame = CGRectMake(370, 650, 1000, 40);
     Cultural.frame = culturalFrame;
     Cultural.tag = 2;
-//    [Cultural setBackgroundImage:Img forState:UIControlStateNormal];
+    //    [Cultural setBackgroundImage:Img forState:UIControlStateNormal];
     [Cultural addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
     [self.mapImageView addSubview:Cultural];
     [self.mapImageView bringSubviewToFront:Cultural];
-
-//    self.testButton = culturalButton;
-//    [self.testButton addTarget:self action:@selector(didTouchDownonButton:) forControlEvents:UIControlEventTouchDown];
-//    [self.testButton addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
-    
-//    [self.mapImageView addSubview: self.testButton];
-//    [self.mapImageView bringSubviewToFront:self.testButton];
 }
 
 
@@ -176,14 +179,18 @@
 
 -(void)requestNewMap
 {
+    // Added activity indicator to load new map
+    [self.activityIndicatorView startAnimating];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-	
+    
 	//start with a clean slate
 	[(SAOTabBarController*)self.tabBarController setReceivedData: [[NSMutableData alloc] init]];
-	
+    
 	//make the request in the background
-//	[[NSURLConnection alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.nd.edu/~sao/SAO_App/SAO_Map.jpg"]] delegate:(SAOTabBarController*)self.tabBarController];
+    [[NSURLConnection alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.nd.edu/~sao/SAO_App/SAO_Map.jpg"]] delegate:(SAOTabBarController*)self.tabBarController];
     NSLog(@"this is trying to dl image");
+    
+    [self.activityIndicatorView stopAnimating];
     
 }
 

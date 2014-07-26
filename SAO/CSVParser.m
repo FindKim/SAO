@@ -95,9 +95,22 @@
 
 - ( void )connectionDidFinishLoading: (NSURLConnection *)connection
 {
+    NSLog(@"connectionDidFinishLoading");
 	NSLog(@"loadedData: %@", [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding]);
-	NSString * loadedFile = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
+//	NSString * loadedFile = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
 	
+    NSString *absoluteURL = @"http://www.nd.edu/~kngo/SAO_App/clubs.csv";
+    NSURL *url = [NSURL URLWithString:absoluteURL];
+    NSString *loadedFile = [[NSString alloc] initWithContentsOfURL:url];
+    
+//    NSArray *contentArray = [fileString componentsSeparatedByString:@"\r"];
+//    NSLog(@"%@",loadedFile);
+    
+    
+    //    for (NSString *item in contentArray) {
+    //        NSArray *itemArray = [item componentsSeparatedByString:@","];
+    
+    
 	self.lines = [loadedFile componentsSeparatedByString:@"\r"];
 	self.lineNumber = 0;
 	[self.delegate parserLoaded:self];
@@ -138,62 +151,107 @@
 		{
 			//get the current character
 			char currentCharacter = [line characterAtIndex:i];
-			
+            char nextCharacter;
+            if (i+1 < [line length]) {
+                nextCharacter = [line characterAtIndex:i+1];
+            }
+//			NSLog(@"%c", currentCharacter);
 			//look for special characters
-			
-			if (currentCharacter == '"')
-			{//4 options: it is starting a literal, it is ending a literal, it is the first in a double, it is the second in a double
-				if (inQuotes)
-				{//3 options: it is ending a literal, it is first in a double, or it is second in a double
-					if (quoteLastRun)
-					{//it is second in a double - append the quotation mark
-						[currentValue appendFormat:@"%c", currentCharacter];
-						quoteLastRun = NO;
-					} else //it is first in a double or it is ending a literal - do nothing, but remember it...
-					{
-						quoteLastRun = YES;
-					}
-				} else
-				{//1 option: it is starting a literal
-					inQuotes = YES;
-				}
-			} else
-			{
-				//2 options: inside quotes, outside quotes
-				if (inQuotes)
-				{ //in quotes
-					if (quoteLastRun)
-					{// those last quotes were ending the literal, so proceed as if you weren't in quotes
-						inQuotes = NO;
-						if (currentCharacter == ',')
-						{
-							/********************** NEW VALUE **********************/
-							[self.delegate parser:self
-										 DidParseString:[currentValue copy]
-											withRowNumber:self.lineNumber
-										withColumNumber:self.columnNumber];
-							currentValue = [[NSMutableString alloc] init];
-							self.columnNumber++;
-						}//splitting values
-						else [currentValue appendFormat:@"%c", currentCharacter];//literal character
-						
-					} else [currentValue appendFormat:@"%c", currentCharacter];//literal character
-				}
-				else
-				{//not in quotes
+            
+            if (currentCharacter == '"')
+            {
+                if (inQuotes && nextCharacter == ',') {
+                    quoteLastRun = YES;
+                    inQuotes = NO;
+//                    NSLog(@"Getting out of quote");
+                    [self.delegate parser:self
+                           DidParseString:[currentValue copy]
+                            withRowNumber:self.lineNumber
+                          withColumNumber:self.columnNumber];
+                    currentValue = [[NSMutableString alloc] init];
+                    self.columnNumber++;
+                    i++;
+                } else {
+                    inQuotes = YES;
+//                    NSLog(@"Going into quote");
+                }
+            } else {
+                if (inQuotes) {
+                    [currentValue appendFormat:@"%c", currentCharacter];//literal character
+                } else {    //not in quotes
 					if (currentCharacter == ',')
 					{
+//                        NSLog(@"New Element");
 						/********************** NEW VALUE **********************/
 						[self.delegate parser:self
-									 DidParseString:[currentValue copy]
-										withRowNumber:self.lineNumber
-									withColumNumber:self.columnNumber];
+                               DidParseString:[currentValue copy]
+                                withRowNumber:self.lineNumber
+                              withColumNumber:self.columnNumber];
 						currentValue = [[NSMutableString alloc] init];
 						self.columnNumber++;
 					}//splitting values
 					else [currentValue appendFormat:@"%c", currentCharacter];//literal character
 				}
-			}
+                
+            }
+            
+//  SEAN'S PARSING ERROR WITH MULTIPLE COMMAS
+//			if (currentCharacter == '"')
+//			{//4 options: it is starting a literal, it is ending a literal, it is the first in a double, it is the second in a double
+//				if (inQuotes)
+//				{//3 options: it is ending a literal, it is first in a double, or it is second in a double
+//					if (quoteLastRun)
+//					{//it is second in a double - append the quotation mark
+//						[currentValue appendFormat:@"%c", currentCharacter];
+//						quoteLastRun = NO;
+//					} else //it is first in a double or it is ending a literal - do nothing, but remember it...
+//					{
+//						quoteLastRun = YES;
+//                        NSLog(@"Getting out of quote");
+//					}
+//				} else
+//				{//1 option: it is starting a literal
+//					inQuotes = YES;
+//				}
+//			} else
+//			{
+//				//2 options: inside quotes, outside quotes
+//				if (inQuotes)
+//				{ //in quotes
+//					if (quoteLastRun)
+//					{// those last quotes were ending the literal, so proceed as if you weren't in quotes
+//						inQuotes = NO;
+//						if (currentCharacter == ',')
+//						{
+// 
+//							/********************** NEW VALUE **********************/
+//							[self.delegate parser:self
+//										 DidParseString:[currentValue copy]
+//											withRowNumber:self.lineNumber
+//										withColumNumber:self.columnNumber];
+//							currentValue = [[NSMutableString alloc] init];
+//							self.columnNumber++;
+//						}//splitting values
+//						else [currentValue appendFormat:@"%c", currentCharacter];//literal character
+//						
+//					} else [currentValue appendFormat:@"%c", currentCharacter];//literal character
+//				}
+//				else
+//				{//not in quotes
+//					if (currentCharacter == ',')
+//					{
+//                        NSLog(@"this didn't work %c", currentCharacter);
+//						/********************** NEW VALUE **********************/
+//						[self.delegate parser:self
+//									 DidParseString:[currentValue copy]
+//										withRowNumber:self.lineNumber
+//									withColumNumber:self.columnNumber];
+//						currentValue = [[NSMutableString alloc] init];
+//						self.columnNumber++;
+//					}//splitting values
+//					else [currentValue appendFormat:@"%c", currentCharacter];//literal character
+//				}
+//			}
 		}
 		if (!self.continueParsing)
 		{

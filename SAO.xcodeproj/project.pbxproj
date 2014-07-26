@@ -24,7 +24,43 @@
 		2C8F587B17CC81310092E639 /* SAOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F587A17CC81310092E639 /* SAOLoginViewController.m */; };
 		2C937FDD174472780095EFB7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C937FDC174472780095EFB7 /* CoreData.framework */; };
 		2C937FEF1746A05C0095EFB7 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C937FEE1746A05C0095EFB7 /* CSVParser.m */; };
-		B4A1CC7519822245005479B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD5D19820DFA00F1409B /* Default-568h@2x.png */; };
+		B4490BEC1982FABF00580C70 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FDC5198210D100F1409B /* MainStoryboard.storyboard */; };
+		B4490BED1982FAEE00580C70 /* SAO-Tab-png@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FE03198210D100F1409B /* SAO-Tab-png@2x.png */; };
+		B4490BEE1982FAEE00580C70 /* SAO-Tab-Long-png.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FE04198210D100F1409B /* SAO-Tab-Long-png.png */; };
+		B4490BEF1982FAEE00580C70 /* SAO-Tab-png.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FE05198210D100F1409B /* SAO-Tab-png.png */; };
+		B4490BF11982FB0800580C70 /* SAO Tab Tappable @2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD9A198210D100F1409B /* SAO Tab Tappable @2x.jpg */; };
+		B4490BF21982FB0800580C70 /* SAO Tab Tappable.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD9B198210D100F1409B /* SAO Tab Tappable.jpg */; };
+		B4490BF31982FB1500580C70 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8BA32175DA64900B57F36 /* Home.png */; };
+		B4490BF41982FB1500580C70 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF8BA33175DA64900B57F36 /* Home@2x.png */; };
+		B4490BF51982FB1500580C70 /* clubs tab bar icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A91F17581F8B0012718E /* clubs tab bar icon.png */; };
+		B4490BF61982FB1500580C70 /* clubs tab bar icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92017581F8B0012718E /* clubs tab bar icon@2x.png */; };
+		B4490BF71982FB1500580C70 /* maps tab bar icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92117581F8B0012718E /* maps tab bar icon.png */; };
+		B4490BF81982FB1500580C70 /* maps tab bar icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92217581F8B0012718E /* maps tab bar icon@2x.png */; };
+		B4490BF91982FB1500580C70 /* profile tab bar icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92317581F8B0012718E /* profile tab bar icon.png */; };
+		B4490BFA1982FB1500580C70 /* profile tab bar icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92417581F8B0012718E /* profile tab bar icon@2x.png */; };
+		B4490BFB1982FB1500580C70 /* SAO tab bar icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92517581F8B0012718E /* SAO tab bar icon.png */; };
+		B4490BFC1982FB1500580C70 /* SAO tab bar icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A92617581F8B0012718E /* SAO tab bar icon@2x.png */; };
+		B4490C0F1982FB5A00580C70 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD5D19820DFA00F1409B /* Default-568h@2x.png */; };
+		B4490C101982FB9C00580C70 /* Academic cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585A17CC7F940092E639 /* Academic cell.png */; };
+		B4490C111982FB9C00580C70 /* Academic cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585B17CC7F940092E639 /* Academic cell@2x.png */; };
+		B4490C121982FB9C00580C70 /* Athletic cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585C17CC7F940092E639 /* Athletic cell.png */; };
+		B4490C131982FB9C00580C70 /* Athletic cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585D17CC7F940092E639 /* Athletic cell@2x.png */; };
+		B4490C141982FB9C00580C70 /* Cultural cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585E17CC7F940092E639 /* Cultural cell.png */; };
+		B4490C151982FB9C00580C70 /* Cultural cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F585F17CC7F940092E639 /* Cultural cell@2x.png */; };
+		B4490C161982FB9C00580C70 /* Performing Arts cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586017CC7F940092E639 /* Performing Arts cell.png */; };
+		B4490C171982FB9C00580C70 /* Performing Arts cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586117CC7F940092E639 /* Performing Arts cell@2x.png */; };
+		B4490C181982FB9C00580C70 /* Social Service cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586217CC7F940092E639 /* Social Service cell.png */; };
+		B4490C191982FB9C00580C70 /* Social Service cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586317CC7F940092E639 /* Social Service cell@2x.png */; };
+		B4490C1A1982FB9C00580C70 /* Special Interest cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586417CC7F940092E639 /* Special Interest cell.png */; };
+		B4490C1B1982FB9C00580C70 /* Special Interest cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F586517CC7F940092E639 /* Special Interest cell@2x.png */; };
+		B4490C1C1982FBE100580C70 /* EmptyStar.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD7C198210D100F1409B /* EmptyStar.png */; };
+		B4490C1D1982FBE100580C70 /* EmptyStarNoShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD7D198210D100F1409B /* EmptyStarNoShadow.png */; };
+		B4490C1E1982FBE100580C70 /* FilledStar.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD82198210D100F1409B /* FilledStar.png */; };
+		B4490C1F1982FBE100580C70 /* FilledStarNoShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD83198210D100F1409B /* FilledStarNoShadow.png */; };
+		B4490C201982FC6000580C70 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A93F175820C10012718E /* Icon@2x.png */; };
+		B4490C211982FC6000580C70 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A93D175820B70012718E /* Icon.png */; };
+		B4490C221982FEEF00580C70 /* SAO Tab No Facts 320x650.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD99198210D100F1409B /* SAO Tab No Facts 320x650.jpg */; };
+		B4490C231982FEEF00580C70 /* SAO Tab No Facts 320x411.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58A117CC84160092E639 /* SAO Tab No Facts 320x411.jpg */; };
 		B4F9FE40198210D100F1409B /* SAOClubNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F9FDA7198210D100F1409B /* SAOClubNavigationController.m */; };
 		B4F9FE45198210D100F1409B /* SAOTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F9FDB1198210D100F1409B /* SAOTabBarController.m */; };
 /* End PBXBuildFile section */
@@ -849,7 +885,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A1CC7519822245005479B5 /* Default-568h@2x.png in Resources */,
+				B4490C221982FEEF00580C70 /* SAO Tab No Facts 320x650.jpg in Resources */,
+				B4490C231982FEEF00580C70 /* SAO Tab No Facts 320x411.jpg in Resources */,
+				B4490C201982FC6000580C70 /* Icon@2x.png in Resources */,
+				B4490C211982FC6000580C70 /* Icon.png in Resources */,
+				B4490C1C1982FBE100580C70 /* EmptyStar.png in Resources */,
+				B4490C1D1982FBE100580C70 /* EmptyStarNoShadow.png in Resources */,
+				B4490C1E1982FBE100580C70 /* FilledStar.png in Resources */,
+				B4490C1F1982FBE100580C70 /* FilledStarNoShadow.png in Resources */,
+				B4490C101982FB9C00580C70 /* Academic cell.png in Resources */,
+				B4490C111982FB9C00580C70 /* Academic cell@2x.png in Resources */,
+				B4490C121982FB9C00580C70 /* Athletic cell.png in Resources */,
+				B4490C131982FB9C00580C70 /* Athletic cell@2x.png in Resources */,
+				B4490C141982FB9C00580C70 /* Cultural cell.png in Resources */,
+				B4490C151982FB9C00580C70 /* Cultural cell@2x.png in Resources */,
+				B4490C161982FB9C00580C70 /* Performing Arts cell.png in Resources */,
+				B4490C171982FB9C00580C70 /* Performing Arts cell@2x.png in Resources */,
+				B4490C181982FB9C00580C70 /* Social Service cell.png in Resources */,
+				B4490C191982FB9C00580C70 /* Social Service cell@2x.png in Resources */,
+				B4490C1A1982FB9C00580C70 /* Special Interest cell.png in Resources */,
+				B4490C1B1982FB9C00580C70 /* Special Interest cell@2x.png in Resources */,
+				B4490BF31982FB1500580C70 /* Home.png in Resources */,
+				B4490BF41982FB1500580C70 /* Home@2x.png in Resources */,
+				B4490BF51982FB1500580C70 /* clubs tab bar icon.png in Resources */,
+				B4490BF61982FB1500580C70 /* clubs tab bar icon@2x.png in Resources */,
+				B4490BF71982FB1500580C70 /* maps tab bar icon.png in Resources */,
+				B4490BF81982FB1500580C70 /* maps tab bar icon@2x.png in Resources */,
+				B4490BF91982FB1500580C70 /* profile tab bar icon.png in Resources */,
+				B4490BFA1982FB1500580C70 /* profile tab bar icon@2x.png in Resources */,
+				B4490BFB1982FB1500580C70 /* SAO tab bar icon.png in Resources */,
+				B4490BFC1982FB1500580C70 /* SAO tab bar icon@2x.png in Resources */,
+				B4490C0F1982FB5A00580C70 /* Default-568h@2x.png in Resources */,
+				B4490BF11982FB0800580C70 /* SAO Tab Tappable @2x.jpg in Resources */,
+				B4490BF21982FB0800580C70 /* SAO Tab Tappable.jpg in Resources */,
+				B4490BED1982FAEE00580C70 /* SAO-Tab-png@2x.png in Resources */,
+				B4490BEE1982FAEE00580C70 /* SAO-Tab-Long-png.png in Resources */,
+				B4490BEF1982FAEE00580C70 /* SAO-Tab-png.png in Resources */,
+				B4490BEC1982FABF00580C70 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
