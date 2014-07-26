@@ -24,13 +24,17 @@
 
 @implementation SAOEditProfileViewController
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad
 {
 	self.nameTextField.delegate = self;
 	self.majorTextField.delegate = self;
     self.classTextField.delegate = self;
 	self.emailTextField.delegate = self;
-
+    [self setNeedsStatusBarAppearanceUpdate];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

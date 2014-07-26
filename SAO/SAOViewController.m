@@ -24,10 +24,10 @@
 
 @implementation SAOViewController
 
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
 	if (![[NSUserDefaults standardUserDefaults] boolForKey:@"first app opening"])
 	{
 		[self promptForLogin];
@@ -65,7 +65,10 @@
 	//	-make an imageview with the correct iamge, frame, and add it as a subview
 	//	-make the imageView as big as the image it holds
 	//	-make sure that the scroll view content size is set to the same
-	
+    
+    // Setting selected tab image to dark blue
+	[[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
 	
 	
 	CGRect screenBounds = [[UIScreen mainScreen] bounds];

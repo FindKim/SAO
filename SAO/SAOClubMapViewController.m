@@ -73,9 +73,15 @@
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-    
+
+    // Added activity indicator to load new map
+    [self.activityIndicatorView startAnimating];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	//request for the map from online
 	[self requestNewMap];
+    
+    // Stop animating after map is requested
+    [self.activityIndicatorView stopAnimating];
 }
 
 -(void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
@@ -85,6 +91,7 @@
 
 -(void)resetMapScrollViewWithNewImage
 {
+    [self.activityIndicatorView startAnimating];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
 	double scale = MAX(self.mapScrollView.frame.size.width / self.mapImage.size.width,
@@ -123,6 +130,9 @@
     self.mapImageView.userInteractionEnabled = YES;
     self.mapScrollView.exclusiveTouch = YES;
     self.mapImageView.exclusiveTouch = YES;
+
+    // Stop animating after map is requested
+    [self.activityIndicatorView stopAnimating];
 }
 
 -(void) addCategoryButtonsToScrollView
@@ -179,18 +189,12 @@
 
 -(void)requestNewMap
 {
-    // Added activity indicator to load new map
-    [self.activityIndicatorView startAnimating];
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
 	//start with a clean slate
 	[(SAOTabBarController*)self.tabBarController setReceivedData: [[NSMutableData alloc] init]];
     
 	//make the request in the background
     [[NSURLConnection alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.nd.edu/~sao/SAO_App/SAO_Map.jpg"]] delegate:(SAOTabBarController*)self.tabBarController];
     NSLog(@"this is trying to dl image");
-    
-    [self.activityIndicatorView stopAnimating];
     
 }
 

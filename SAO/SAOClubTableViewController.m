@@ -39,10 +39,15 @@
         [self.tableView scrollRectToVisible:sectionRect animated:YES];
 }
 
+-(UIStatusBarStyle) preferredStatusBarStyle
+{
+    return UIStatusBarStyleBlackOpaque;
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
+	[self setNeedsStatusBarAppearanceUpdate];
 	//	NSArray * clubArray = [NSArray arrayWithObjects:[NSString stringWithString:@], nil];
 	
 	
@@ -72,6 +77,10 @@
 {
 	[self refreshClubs];
 	[super viewWillAppear:animated];
+    
+    // Selected tab icon to dark blue
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue

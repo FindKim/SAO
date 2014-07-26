@@ -26,11 +26,16 @@
 
 @implementation SAOProfileViewController
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 -(void)viewDidLoad
 {	
 	//set the table delegate and data source
 	self.favoriteClubsTableView.delegate = self;
 	self.favoriteClubsTableView.dataSource = self;
+    [self setNeedsStatusBarAppearanceUpdate];
 	[super viewDidLoad];
 }
 
@@ -64,6 +69,11 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    // Setting selected tab image to dark blue
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+    
+    
 	self.nameLabel.text = [[NSUserDefaults standardUserDefaults] valueForKey:NAME];
 	self.majorLabel.text = [[NSUserDefaults standardUserDefaults] valueForKey:MAJOR];
 	self.classLabel.text = self.abbreviateClass;

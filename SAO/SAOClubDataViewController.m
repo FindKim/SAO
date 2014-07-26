@@ -18,8 +18,11 @@
 
 @interface SAOClubDataViewController () <MFMailComposeViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *clubDescriptionTextView;
+//@property (weak, nonatomic) IBOutlet UILabel *clubDescriptionTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *clubImageView;
+@property (weak, nonatomic) IBOutlet UITextView *clubDescriptionTextView;
+@property (weak, nonatomic) IBOutlet UILabel *clubNameLabel;
+
 
 @end
 
@@ -34,7 +37,8 @@
 {
 	[super viewDidLayoutSubviews];
 	
-	self.navigationItem.title = [(SAOClubNavigationController* )self.navigationController clubName];
+    self.clubNameLabel.text =[(SAOClubNavigationController* )self.navigationController clubName];
+	self.navigationItem.title =[[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Category"];
 	self.clubDescriptionTextView.text = [[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Description"];
 	self.clubImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Category"]]];
 	
@@ -43,10 +47,12 @@
 
 -(void)fillFavoritedStar
 {
-	if ([[[NSUserDefaults standardUserDefaults] dictionaryForKey:FAVORITE_CLUBS] valueForKey:self.navigationItem.title])
+	if ([[[NSUserDefaults standardUserDefaults] dictionaryForKey:FAVORITE_CLUBS] valueForKey:self.clubNameLabel.text])
 	{
-		self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"FilledStar.png"];
+        // Changes star color from gray to yellow/orange to match "contact" button
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:240.0/255 green:168.0/255 blue:4.0/255 alpha:1];
 	} else {
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
 		self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"EmptyStar.png"];
 	}
 }
@@ -58,15 +64,15 @@
 		[[NSUserDefaults standardUserDefaults] setValue:[[NSDictionary alloc] init] forKey:FAVORITE_CLUBS];
 	}
 	
-	if(![[[NSUserDefaults standardUserDefaults] dictionaryForKey:FAVORITE_CLUBS] valueForKey:self.navigationItem.title])
+	if(![[[NSUserDefaults standardUserDefaults] dictionaryForKey:FAVORITE_CLUBS] valueForKey:self.clubNameLabel.text])
 	{
 		NSDictionary * clubDictionary = [[(SAOClubNavigationController*)self.navigationController clubDictionary] copy];
 		NSMutableDictionary * favoriteClubsDictionary = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:FAVORITE_CLUBS] mutableCopy];
-		[favoriteClubsDictionary setValue:clubDictionary forKey:self.navigationItem.title];
+		[favoriteClubsDictionary setValue:clubDictionary forKey:self.clubNameLabel.text];
 		[[NSUserDefaults standardUserDefaults] setValue:[favoriteClubsDictionary copy] forKey:FAVORITE_CLUBS];
 	} else {
 		NSMutableDictionary * favoriteClubsDictionary = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:FAVORITE_CLUBS] mutableCopy];
-		[favoriteClubsDictionary removeObjectForKey:self.navigationItem.title];
+		[favoriteClubsDictionary removeObjectForKey:self.clubNameLabel.text];
 		[[NSUserDefaults standardUserDefaults] setValue:[favoriteClubsDictionary copy] forKey:FAVORITE_CLUBS];
 	}
 	
@@ -81,7 +87,7 @@
     NSString * class = [[NSUserDefaults standardUserDefaults] objectForKey:CLASS];
 	
 	// Email Subject
-	NSString *emailTitle = [NSString stringWithFormat:@"Interested in %@", self.navigationItem.title];
+	NSString *emailTitle = [NSString stringWithFormat:@"Interested in %@", self.clubNameLabel.text];
 	// Email Content
 	NSString *messageBody;
     
@@ -93,29 +99,29 @@
 	            
 	    		// Class year & major
 	    		if ([major length] > 0) {
-	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@, my major is %@, and I am in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, class, self.navigationItem.title, name];
+	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@, my major is %@, and I am in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, class, self.clubNameLabel.text, name];
 	                
 	                // Class year & no major
 		    	} else {
-		    		messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, self.navigationItem.title, name];
+		    		messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, self.clubNameLabel.text, name];
 		    	}
 	            
 	    	} else {
 	            
 	    		// Class category & major
 	    		if ([major length] > 0) {
-	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am a %@ %@ major. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, major, self.navigationItem.title, name];
+	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am a %@ %@ major. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, major, self.clubNameLabel.text, name];
 	                
                 // Class category & no major
 	    		} else {
-	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am currently a %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, self.navigationItem.title, name];
+	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and I am currently a %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, class, self.clubNameLabel.text, name];
 	    		}
 	            
 	    	}
 	        
         // No class & major
 	    } else if ([major length] > 0) {
-	        messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and my major is %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, self.navigationItem.title, name];
+	        messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and my major is %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, self.clubNameLabel.text, name];
 	        
         }
     } else {
@@ -126,7 +132,17 @@
 	NSArray *toRecipents = [NSArray arrayWithObject:[[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Email"]];
 	
 	MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-	mc.mailComposeDelegate = self;
+    mc.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    mc.navigationBar.tintColor = [UIColor grayColor];
+    
+    // Sets status bar to same style (white content) as SAOClubVC
+    [self presentViewController:mc animated:YES completion:^{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        [mc preferredStatusBarStyle];
+        [mc setNeedsStatusBarAppearanceUpdate];
+    }];
+    
+    mc.mailComposeDelegate = self;
 	[mc setSubject:emailTitle];
 	[mc setMessageBody:messageBody isHTML:NO];
 	[mc setToRecipients:toRecipents];
