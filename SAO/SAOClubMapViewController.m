@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UIImageView *mapImageView;
 @property (weak, nonatomic) UIButton *testButton;
 @property (nonatomic, strong) UIButton *buttonContainer;
+@property (nonatomic, assign) BOOL mapLoaded;
 
 @end
 
@@ -42,7 +43,16 @@
         clubCategory = @"Athletic";
     } else if (clubCategoryID == 2) {
         clubCategory = @"Cultural";
+    } else if (clubCategoryID == 3) {
+        clubCategory = @"Performing Arts";
+    } else if (clubCategoryID == 4) {
+        clubCategory = @"Social Service";
+    } else if (clubCategoryID == 5) {
+        clubCategory = @"Special Interest";
+    } else if (clubCategoryID == 6) {
+        clubCategory = @"Student Activity";
     }
+    
     NSLog(@"Sending category %@", clubCategory);
     
     // Sends notification to ClubsTableView
@@ -56,13 +66,12 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view, typically from a nib.
-    
     // Add activity indicator to load map
-    CGRect frame = CGRectMake (120.0, 185.0, 80, 80);
+    CGRect frame = CGRectMake (100, 100, 80, 80);
     self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:frame];
+    self.activityIndicatorView.center = self.view.center;
     self.activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:self.activityIndicatorView];
-    self.activityIndicatorView.center = self.view.center;
 }
 
 -(void) viewDidLayoutSubviews
@@ -73,15 +82,20 @@
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-
-    // Added activity indicator to load new map
-    [self.activityIndicatorView startAnimating];
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-	//request for the map from online
-	[self requestNewMap];
     
-    // Stop animating after map is requested
-    [self.activityIndicatorView stopAnimating];
+	//request for the map from online
+    if (!self.mapLoaded) {
+        
+        // Added activity indicator to load new map
+        [self.activityIndicatorView startAnimating];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        [self requestNewMap];
+        [self.view bringSubviewToFront:self.activityIndicatorView];
+        self.mapLoaded = YES;
+        
+        // Stop animating after map is requested
+        [self.activityIndicatorView stopAnimating];
+    }
 }
 
 -(void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
@@ -91,7 +105,6 @@
 
 -(void)resetMapScrollViewWithNewImage
 {
-    [self.activityIndicatorView startAnimating];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
 	double scale = MAX(self.mapScrollView.frame.size.width / self.mapImage.size.width,
@@ -130,9 +143,6 @@
     self.mapImageView.userInteractionEnabled = YES;
     self.mapScrollView.exclusiveTouch = YES;
     self.mapImageView.exclusiveTouch = YES;
-
-    // Stop animating after map is requested
-    [self.activityIndicatorView stopAnimating];
 }
 
 -(void) addCategoryButtonsToScrollView

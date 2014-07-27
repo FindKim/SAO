@@ -3,7 +3,6 @@
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller - SAO-->
@@ -83,7 +82,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" text="Senior" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0i-se-AbZ" customClass="Class">
-                                <rect key="frame" x="249" y="134" width="51" height="21"/>
+                                <rect key="frame" x="249" y="135" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
@@ -118,7 +117,6 @@
                         <constraints>
                             <constraint firstItem="9et-3U-qwS" firstAttribute="top" secondItem="vHj-Ta-LUY" secondAttribute="top" constant="84" id="5sh-p3-hAK"/>
                             <constraint firstItem="XUn-0f-LmC" firstAttribute="leading" secondItem="vHj-Ta-LUY" secondAttribute="leading" id="734-j0-k5L"/>
-                            <constraint firstItem="g0i-se-AbZ" firstAttribute="bottom" secondItem="EOV-tt-7mb" secondAttribute="centerY" id="8Uv-Bg-zE6"/>
                             <constraint firstItem="g0i-se-AbZ" firstAttribute="leading" secondItem="EOV-tt-7mb" secondAttribute="trailing" constant="10" id="IUI-S2-Fgw"/>
                             <constraint firstAttribute="trailing" secondItem="7Jw-pd-KoC" secondAttribute="trailing" id="K9P-65-EvY"/>
                             <constraint firstItem="7Jw-pd-KoC" firstAttribute="leading" secondItem="vHj-Ta-LUY" secondAttribute="leading" id="OI7-RL-aIU"/>
@@ -128,11 +126,14 @@
                             <constraint firstItem="XUn-0f-LmC" firstAttribute="top" secondItem="Xuv-cL-WQz" secondAttribute="bottom" constant="-20" id="S0v-lN-8Nd"/>
                             <constraint firstAttribute="trailing" secondItem="XUn-0f-LmC" secondAttribute="trailing" id="Wfu-To-tF7"/>
                             <constraint firstItem="4Fg-gH-gm1" firstAttribute="top" secondItem="EOV-tt-7mb" secondAttribute="bottom" constant="18" id="YD7-b8-eT2"/>
+                            <constraint firstItem="9et-3U-qwS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vHj-Ta-LUY" secondAttribute="leading" constant="20" id="ZHB-tK-YOI"/>
                             <constraint firstItem="7Jw-pd-KoC" firstAttribute="top" secondItem="4Fg-gH-gm1" secondAttribute="bottom" constant="10" id="Zv8-Bb-QuF"/>
                             <constraint firstItem="EOV-tt-7mb" firstAttribute="top" secondItem="9et-3U-qwS" secondAttribute="bottom" constant="18" id="bUs-gy-7Yu"/>
                             <constraint firstItem="9et-3U-qwS" firstAttribute="top" secondItem="XUn-0f-LmC" secondAttribute="bottom" constant="16" id="dHt-UG-1QJ"/>
                             <constraint firstAttribute="trailing" secondItem="g0i-se-AbZ" secondAttribute="trailing" constant="20" id="dzo-3V-aqO"/>
+                            <constraint firstItem="EOV-tt-7mb" firstAttribute="top" secondItem="g0i-se-AbZ" secondAttribute="top" id="u7D-JW-jOq"/>
                             <constraint firstItem="9et-3U-qwS" firstAttribute="centerX" secondItem="4Fg-gH-gm1" secondAttribute="centerX" id="xPW-ty-dno"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9et-3U-qwS" secondAttribute="trailing" constant="20" id="yHx-NS-nNc"/>
                             <constraint firstItem="uMN-ma-Rbu" firstAttribute="top" secondItem="7Jw-pd-KoC" secondAttribute="bottom" id="zLR-Vp-nR0"/>
                         </constraints>
                     </view>
@@ -578,7 +579,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tef-tn-5k1"/>
-        <segue reference="cEr-ho-12h"/>
+        <segue reference="Yb9-1b-Y8j"/>
+        <segue reference="fDC-li-3wg"/>
     </inferredMetricsTieBreakers>
 </document>

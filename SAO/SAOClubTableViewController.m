@@ -31,6 +31,14 @@
         section = 1;
     } else if ([[notification name] isEqualToString:@"Cultural"]) {
         section = 2;
+    } else if ([[notification name] isEqualToString:@"Performing Arts"]) {
+        section = 3;
+    } else if ([[notification name] isEqualToString:@"Social Service"]) {
+        section = 4;
+    } else if ([[notification name] isEqualToString:@"Special Interest"]) {
+        section = 5;
+    } else if ([[notification name] isEqualToString:@"Student Activity"]) {
+        section = 6;
     }
     
     // Scrolls to section
@@ -56,7 +64,7 @@
 												 @"Cultural",
 												 @"Performing Arts",
 												 @"Social Service",
-												 @"Special Interest"]];
+												 @"Special Interest", @"Student Activity"]];
 	[(SAOTabBarController*)self.tabBarController setClubs:nil];
 	[self.tableView reloadData];
 	[self refreshClubs];
@@ -65,6 +73,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Academic" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Athletic" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Cultural" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Performing Arts" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Social Service" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Special Interest" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Student Activity" object:nil];
 }
 
 -(void)viewDidUnload
@@ -99,9 +111,7 @@
 			indexPath = [self.tableView indexPathForSelectedRow];
 		}
 		
-		NSPredicate *resultPredicate = [NSPredicate
-																		predicateWithFormat:@"%K == %@", @"Category",
-																		[(SAOTabBarController*)self.tabBarController clubCategories][indexPath.section]];
+		NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"%K == %@", @"Category", [(SAOTabBarController*)self.tabBarController clubCategories][indexPath.section]];
 		
 		NSArray *currentSectionClubs = [[(SAOTabBarController*)self.tabBarController clubs] filteredArrayUsingPredicate:resultPredicate];
 		
@@ -158,9 +168,7 @@
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-	NSPredicate *resultPredicate = [NSPredicate
-																	predicateWithFormat:@"%K contains[cd] %@", @"Name",
-																	searchText];
+	NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", @"Name", searchText];
 	
 	self.searchResults = [[(SAOTabBarController*)self.tabBarController clubs] filteredArrayUsingPredicate:resultPredicate];
 }
@@ -169,10 +177,8 @@
 shouldReloadTableForSearchString:(NSString *)searchString
 {
 	[self filterContentForSearchText:searchString
-														 scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
-																		objectAtIndex:[self.searchDisplayController.searchBar
-																									 selectedScopeButtonIndex]]];
-	
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
 	return YES;
 }
 
@@ -186,9 +192,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	NSPredicate *resultPredicate = [NSPredicate
-																	predicateWithFormat:@"%K == %@", @"Category",
-																	[(SAOTabBarController*)self.tabBarController clubCategories][section]];
+	NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"%K == %@", @"Category",
+                                    [(SAOTabBarController*)self.tabBarController clubCategories][section]];
 
 	if (tableView == self.searchDisplayController.searchResultsTableView) {
 		return [[self.searchResults filteredArrayUsingPredicate:resultPredicate] count];
@@ -212,9 +217,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
 	}
 	
-	NSPredicate *resultPredicate = [NSPredicate
-																	predicateWithFormat:@"%K == %@", @"Category",
-																	[(SAOTabBarController*)self.tabBarController clubCategories][indexPath.section]];
+	NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"%K == %@", @"Category", [(SAOTabBarController*)self.tabBarController clubCategories][indexPath.section]];
 	
 	NSArray *currentSectionClubs = [[(SAOTabBarController*)self.tabBarController clubs] filteredArrayUsingPredicate:resultPredicate];
 	
@@ -226,11 +229,11 @@ shouldReloadTableForSearchString:(NSString *)searchString
 		currentSectionClubs = [self.searchResults filteredArrayUsingPredicate:resultPredicate];
 		currentSectionClubs=[currentSectionClubs sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
 
-		int cellNumber = indexPath.row;
+		NSInteger cellNumber = indexPath.row;
 		cell.textLabel.text = [(NSMutableDictionary*)[currentSectionClubs objectAtIndex:cellNumber] valueForKey:@"Name"];
 		cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@ cell.png", [(NSMutableDictionary*)[currentSectionClubs objectAtIndex:cellNumber] valueForKey:@"Category"]]];
 	} else {
-		int cellNumber = indexPath.row;
+		NSInteger cellNumber = indexPath.row;
 		cell.textLabel.text = [(NSMutableDictionary*)[currentSectionClubs objectAtIndex:cellNumber] valueForKey:@"Name"];
 		cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@ cell.png", [(SAOTabBarController*)self.tabBarController clubCategories][indexPath.section]]];
 	}
