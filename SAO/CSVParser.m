@@ -95,13 +95,14 @@
 
 - ( void )connectionDidFinishLoading: (NSURLConnection *)connection
 {
-    NSLog(@"connectionDidFinishLoading");
+
 	NSLog(@"loadedData: %@", [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding]);
 //	NSString * loadedFile = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
 	
     NSString *absoluteURL = @"http://www.nd.edu/~kngo/SAO_App/clubs.csv";
     NSURL *url = [NSURL URLWithString:absoluteURL];
     NSString *loadedFile = [[NSString alloc] initWithContentsOfURL:url];
+    NSLog(@"loadedData: %@", loadedFile);
     
 //    NSArray *contentArray = [fileString componentsSeparatedByString:@"\r"];
 //    NSLog(@"%@",loadedFile);
@@ -141,6 +142,7 @@
 	NSMutableString * currentValue = [[NSMutableString alloc] init];
 	for (; self.lineNumber < [self.lines count]; self.lineNumber++)
 	{
+//        NSLog(@"NEW LINEEEE %i", self.lineNumber);
 		//finds the string at the specific line number
 		NSString * line = (NSString *)self.lines[self.lineNumber];
 		
@@ -160,6 +162,7 @@
             
             if (currentCharacter == '"')
             {
+                // End of quote, next column
                 if (inQuotes && nextCharacter == ',') {
                     quoteLastRun = YES;
                     inQuotes = NO;
@@ -169,7 +172,13 @@
                             withRowNumber:self.lineNumber
                           withColumNumber:self.columnNumber];
                     currentValue = [[NSMutableString alloc] init];
+//                    NSLog(@"Leaving quote: New element: %i", self.columnNumber);
                     self.columnNumber++;
+                    i++;
+                
+                // literal character " within ""
+                } else if (nextCharacter == '"') {
+                    [currentValue appendFormat:@"%c", currentCharacter];//literal character
                     i++;
                 } else {
                     inQuotes = YES;
@@ -181,7 +190,7 @@
                 } else {    //not in quotes
 					if (currentCharacter == ',')
 					{
-//                        NSLog(@"New Element");
+//                        NSLog(@"New Element: %i", self.columnNumber);
 						/********************** NEW VALUE **********************/
 						[self.delegate parser:self
                                DidParseString:[currentValue copy]

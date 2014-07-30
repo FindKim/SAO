@@ -13,8 +13,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque];
-    [[UINavigationBar appearance] setBarTintColor : [UIColor blackColor]] ;
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    // Navigation bar ND blue
+    [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+    // Navigation title set to white
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTintColor:[UIColor grayColor]];
+    // Cannot set translucency to all views, not supported by iOS7
+    // Set for individual views
+    //[[UINavigationBar appearance] setTranslucent:NO];
 
     // Override point for customization after application launch.
     return YES;

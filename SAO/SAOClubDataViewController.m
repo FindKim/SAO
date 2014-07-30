@@ -42,6 +42,7 @@
 	self.clubDescriptionTextView.text = [[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Description"];
 	self.clubImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Category"]]];
 	
+    [self.navigationController.navigationBar setTranslucent:NO];
 	[self fillFavoritedStar];
 }
 
@@ -132,14 +133,19 @@
 	NSArray *toRecipents = [NSArray arrayWithObject:[[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Email"]];
 	
 	MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    mc.navigationBar.tintColor = [UIColor grayColor];
+    //mc.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    //mc.navigationBar.barStyle = UIBarStyleDefault;
+    //mc.navigationBar.tintColor = [UIColor grayColor];
+    //mc.navigationBar.barTintColor = [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1];
+    [[mc navigationBar] setTintColor:[UIColor grayColor]];
+    [[mc navigationBar] setTranslucent:NO];
+    [[mc navigationBar] setTintColor:[UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+    //mc.navigationBar.translucent = NO;
     
     // Sets status bar to same style (white content) as SAOClubVC
     [self presentViewController:mc animated:YES completion:^{
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        [mc preferredStatusBarStyle];
-        [mc setNeedsStatusBarAppearanceUpdate];
+        [self setNeedsStatusBarAppearanceUpdate];
     }];
     
     mc.mailComposeDelegate = self;

@@ -55,6 +55,10 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+    [self.searchDisplayController.searchBar setTranslucent:NO];
+    [self.searchDisplayController.searchBar setBackgroundImage:[UIImage new]];
+    [self.searchDisplayController.searchBar setBackgroundColor:[UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+//    [self.searchDisplayController.searchBar.]
 	[self setNeedsStatusBarAppearanceUpdate];
 	//	NSArray * clubArray = [NSArray arrayWithObjects:[NSString stringWithString:@], nil];
 	
@@ -90,9 +94,11 @@
 	[self refreshClubs];
 	[super viewWillAppear:animated];
     
-    // Selected tab icon to dark blue
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
-    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+    // Tab bar ND Blue; selected icon ND gold
+    [[UITabBar appearance] setBarTintColor: [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:220.0/255.0 green:180.0/255.0 blue:57.0/255.0 alpha:1]];
+    //[[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    //[[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue

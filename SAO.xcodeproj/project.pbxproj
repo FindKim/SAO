@@ -940,6 +940,11 @@
 				CLASSPREFIX = SAO;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Notre Dame";
+				TargetAttributes = {
+					2C31B8DA17443CB9008801D4 = {
+						DevelopmentTeam = PTAUHZ2E6Z;
+					};
+				};
 			};
 			buildConfigurationList = 2C31B8D617443CB9008801D4 /* Build configuration list for PBXProject "SAO" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1163,10 +1168,13 @@
 		2C31B8FF17443CBA008801D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAO/SAO-Prefix.pch";
 				INFOPLIST_FILE = "SAO/SAO-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1175,10 +1183,13 @@
 		2C31B90017443CBA008801D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAO/SAO-Prefix.pch";
 				INFOPLIST_FILE = "SAO/SAO-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};

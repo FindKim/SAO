@@ -32,11 +32,12 @@
 
 -(void)viewDidLoad
 {	
-	//set the table delegate and data source
+	[super viewDidLoad];
+    
+    //set the table delegate and data source
 	self.favoriteClubsTableView.delegate = self;
 	self.favoriteClubsTableView.dataSource = self;
     [self setNeedsStatusBarAppearanceUpdate];
-	[super viewDidLoad];
 }
 
 
@@ -69,9 +70,11 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    // Setting selected tab image to dark blue
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
-    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+    // Tab bar ND Blue; selected icon ND gold
+    [[UITabBar appearance] setBarTintColor: [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:220.0/255.0 green:180.0/255.0 blue:57.0/255.0 alpha:1]];
+    //[[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    //[[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
     
     
 	self.nameLabel.text = [[NSUserDefaults standardUserDefaults] valueForKey:NAME];
