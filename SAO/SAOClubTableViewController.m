@@ -47,9 +47,9 @@
         [self.tableView scrollRectToVisible:sectionRect animated:YES];
 }
 
--(UIStatusBarStyle) preferredStatusBarStyle
+- (BOOL)prefersStatusBarHidden
 {
-    return UIStatusBarStyleBlackOpaque;
+    return YES;
 }
 
 - (void)viewDidLoad
@@ -97,8 +97,6 @@
     // Tab bar ND Blue; selected icon ND gold
     [[UITabBar appearance] setBarTintColor: [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:220.0/255.0 green:180.0/255.0 blue:57.0/255.0 alpha:1]];
-    //[[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
-    //[[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
@@ -207,6 +205,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 		return [[[(SAOTabBarController*)self.tabBarController clubs] filteredArrayUsingPredicate:resultPredicate] count];
 	}
 }
+
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {

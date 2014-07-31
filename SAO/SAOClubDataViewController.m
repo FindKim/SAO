@@ -81,6 +81,7 @@
 	
 	[self fillFavoritedStar];
 }
+
 - (IBAction)contactButtonTapped:(UIButton *)sender
 {
 	NSString * name  = [[NSUserDefaults standardUserDefaults] objectForKey:NAME];
@@ -132,21 +133,10 @@
 	// To address
 	NSArray *toRecipents = [NSArray arrayWithObject:[[(SAOClubNavigationController* )self.navigationController clubDictionary] valueForKey:@"Email"]];
 	
+    // Setting navigation bar to white -- because cannot change MailComposerVC's navigation bar or status bar to blue & white respectively
+    [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
+
 	MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    //mc.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    //mc.navigationBar.barStyle = UIBarStyleDefault;
-    //mc.navigationBar.tintColor = [UIColor grayColor];
-    //mc.navigationBar.barTintColor = [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1];
-    [[mc navigationBar] setTintColor:[UIColor grayColor]];
-    [[mc navigationBar] setTranslucent:NO];
-    [[mc navigationBar] setTintColor:[UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
-    //mc.navigationBar.translucent = NO;
-    
-    // Sets status bar to same style (white content) as SAOClubVC
-    [self presentViewController:mc animated:YES completion:^{
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        [self setNeedsStatusBarAppearanceUpdate];
-    }];
     
     mc.mailComposeDelegate = self;
 	[mc setSubject:emailTitle];
@@ -155,6 +145,9 @@
 	
 	// Present mail view controller on screen
 	[self presentViewController:mc animated:YES completion:NULL];
+    
+    // Changing navigation bar back to ND Blue
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1];
 }
 
 
