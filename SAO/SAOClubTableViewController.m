@@ -14,6 +14,7 @@
 @interface SAOClubTableViewController () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) NSArray * searchResults;
+@property (nonatomic) BOOL hasDataEverLoaded; // YES if data has loaded once, will not load again until refreshed
 
 @end
 
@@ -52,27 +53,16 @@
     return YES;
 }
 
-- (void)viewDidLoad
+- (void) setSearchBarSettings
 {
-	[super viewDidLoad];
+    // Initializes search bar settings
     [self.searchDisplayController.searchBar setTranslucent:NO];
     [self.searchDisplayController.searchBar setBackgroundImage:[UIImage new]];
     [self.searchDisplayController.searchBar setBackgroundColor:[UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
-//    [self.searchDisplayController.searchBar.]
-	[self setNeedsStatusBarAppearanceUpdate];
-	//	NSArray * clubArray = [NSArray arrayWithObjects:[NSString stringWithString:@], nil];
-	
-	
-	[(SAOTabBarController*)self.tabBarController setClubCategories: @[@"Academic",
-												 @"Athletic",
-												 @"Cultural",
-												 @"Performing Arts",
-												 @"Social Service",
-												 @"Special Interest", @"Student Activity"]];
-	[(SAOTabBarController*)self.tabBarController setClubs:nil];
-	[self.tableView reloadData];
-	[self refreshClubs];
-    
+}
+
+- (void) initializeNSNotificationObservers
+{
     // Receives notification to scroll to section from map buttons
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Academic" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Athletic" object:nil];
@@ -83,6 +73,43 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Student Activity" object:nil];
 }
 
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+    [self setSearchBarSettings];
+
+
+
+	//	NSArray * clubArray = [NSArray arrayWithObjects:[NSString stringWithString:@], nil];
+	[(SAOTabBarController*)self.tabBarController setClubCategories: @[@"Academic",
+												 @"Athletic",
+												 @"Cultural",
+												 @"Performing Arts",
+												 @"Social Service",
+												 @"Special Interest", @"Student Activity"]];
+	[(SAOTabBarController*)self.tabBarController setClubs:nil];
+	[self.tableView reloadData];
+    if (!self.hasDataEverLoaded) {
+        [self refreshClubs];
+        self.hasDataEverLoaded = YES;
+    }
+    [self initializeNSNotificationObservers]; // Receives notification to scroll to section from map buttons
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor colorWithRed:220.0/255.0 green:180.0/255.0 blue:57.0/255.0 alpha:1]; // Gold
+    [refreshControl addTarget:self action:@selector(refreshClubs) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+}
+
+- (void)updateTable
+{
+    
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+}
+
+
+
 -(void)viewDidUnload
 {
     // This will remove this object from all notifications
@@ -91,7 +118,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-	[self refreshClubs];
+    if (!self.hasDataEverLoaded) {
+        [self refreshClubs];
+    }
 	[super viewWillAppear:animated];
     
     // Tab bar ND Blue; selected icon ND gold
@@ -161,6 +190,9 @@
 	tabBarController.parser = [[CSVParser alloc] init];
 	tabBarController.parser.delegate = tabBarController;
 	[tabBarController.parser loadCSVFileFromURL:url];
+    
+    [self performSelector:@selector(updateTable) withObject:nil
+               afterDelay:1];
 }
 
 -(void)viewDidDisappear:(BOOL)animated

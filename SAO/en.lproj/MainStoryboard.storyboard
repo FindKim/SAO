@@ -310,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWk-4C-acK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="1892"/>
+            <point key="canvasLocation" x="645" y="1768"/>
         </scene>
         <!--Club Table View Controller - CLUBS-->
         <scene sceneID="cbM-HG-6wV">
@@ -370,7 +370,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="645" y="1141"/>
+            <point key="canvasLocation" x="645" y="1048"/>
         </scene>
         <!--Club Data View Controller - Club Name-->
         <scene sceneID="fWd-MI-lVc">
@@ -579,7 +579,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Yb9-1b-Y8j"/>
+        <segue reference="cEr-ho-12h"/>
         <segue reference="fDC-li-3wg"/>
     </inferredMetricsTieBreakers>
 </document>

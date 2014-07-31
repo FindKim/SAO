@@ -23,13 +23,6 @@
 @implementation SAOClubMapViewController
 
 
-- (void)didTouchDownOnButton:(UIButton *)button
-{
-    // Highlight on touch down
-    NSLog(@"Button %ld", (long)button.tag);
-}
-
-
 -(void) handleDoubleTap: (UIButton *)button//(UIGestureRecognizer *) gestureRecognizer
 {
     NSLog(@"Double tap working");
@@ -96,7 +89,20 @@
         // Stop animating after map is requested
         [self.activityIndicatorView stopAnimating];
     }
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"first time to map"])
+	{
+		[self promptDoubleTapMapInstructions];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"first time to map"];
+	}
 }
+
+-(void) promptDoubleTapMapInstructions
+{
+    UIAlertView * noSavedOrderAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Zoom in to double tap on tables for more information!" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+    noSavedOrderAlertView.delegate = self;
+    [noSavedOrderAlertView show];
+}
+
 
 -(void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
 }
@@ -120,10 +126,10 @@
     
 	self.mapImageView = [[UIImageView alloc] initWithImage:self.mapImage];
     
-	self.mapImageView.frame = CGRectMake(0,
-                                         0,
-                                         self.mapImage.size.width,
-                                         self.mapImage.size.height);
+    CGFloat offsetX = (self.mapImage.size.width/2 - self.mapScrollView.bounds.size.width/2);
+    
+	self.mapImageView.frame = CGRectMake(0, 0, self.mapImage.size.width, self.mapImage.size.height);
+    [self.mapScrollView setContentOffset:CGPointMake(offsetX, 0)];  // Center of image is displayed
 	[self.mapScrollView addSubview:self.mapImageView];
 	self.mapScrollView.contentSize = self.mapImage.size;
     //
@@ -133,7 +139,9 @@
     //
     //	self.mapImageView.center = CGPointMake(self.mapScrollView.contentSize.width * 0.5 + offsetX,
     //															 self.mapScrollView.contentSize.height * 0.5 + offsetY);
-	self.mapScrollView.zoomScale = scale;
+	self.mapScrollView.maximumZoomScale = 1;
+    self.mapScrollView.minimumZoomScale = 0.4;
+    self.mapScrollView.zoomScale = 0.4;
     
     [self addCategoryButtonsToScrollView];
     [self scaleButtonToSize: self.testButton];

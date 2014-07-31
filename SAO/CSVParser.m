@@ -50,10 +50,9 @@
 
 -(void)loadCSVFileWithFilePath:(NSString *)path
 {
+    NSStringEncoding encoding = 0;
 	NSError* error;
-	self.lines = [[NSString stringWithContentsOfFile:path
-																			usedEncoding:NSUTF8StringEncoding //apparently, the non-warning way is depracated, so ignore this warning until Apple fixes it.
-																						 error:&error] componentsSeparatedByString:@"\r"];
+	self.lines = [[NSString stringWithContentsOfFile:path usedEncoding:&encoding error:&error] componentsSeparatedByString:@"\r"];
 	self.lineNumber = 0;
 	[self.delegate parserLoaded:self];
 }
@@ -99,9 +98,12 @@
 	NSLog(@"loadedData: %@", [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding]);
 //	NSString * loadedFile = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
 	
+    NSStringEncoding encoding = 0;
+    NSError *error;
+    
     NSString *absoluteURL = @"http://www.nd.edu/~kngo/SAO_App/clubs.csv";
     NSURL *url = [NSURL URLWithString:absoluteURL];
-    NSString *loadedFile = [[NSString alloc] initWithContentsOfURL:url];
+    NSString *loadedFile = [[NSString alloc] initWithContentsOfURL:url encoding:encoding error:&error];
     NSLog(@"loadedData: %@", loadedFile);
     
 //    NSArray *contentArray = [fileString componentsSeparatedByString:@"\r"];

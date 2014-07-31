@@ -44,7 +44,7 @@
 	UIAlertView * noSavedOrderAlertView = [[UIAlertView alloc] initWithTitle:@"Welcome!"
 																																	 message:@"Please sign in."
 																																	delegate:self
-																												 cancelButtonTitle:@"Cancel"
+																												 cancelButtonTitle:@"Close"
 																												 otherButtonTitles:@"Sign In", nil];
 	noSavedOrderAlertView.delegate = self;
 	[noSavedOrderAlertView show];
@@ -122,7 +122,6 @@
 																 [[SAOTappableView alloc] initWithFrame:CGRectMake(30, 9, 75, 55)]];
 	if (screenBounds.size.height == 568)
 	{
-        NSLog(@"IN HERE");
 		tappableViewArray = @[[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 520, 36, 36)],
 												[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 562, 36, 36)],
 												[[SAOTappableView alloc] initWithFrame:CGRectMake(32, 605, 36, 36)],
