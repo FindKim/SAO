@@ -98,7 +98,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *simpleTableIdentifier = @"Club Cell";
+	static NSString *simpleTableIdentifier = @"Profile Club Cell";
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 	

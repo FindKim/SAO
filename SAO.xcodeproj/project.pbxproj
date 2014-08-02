@@ -61,6 +61,7 @@
 		B4490C211982FC6000580C70 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A93D175820B70012718E /* Icon.png */; };
 		B4490C221982FEEF00580C70 /* SAO Tab No Facts 320x650.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD99198210D100F1409B /* SAO Tab No Facts 320x650.jpg */; };
 		B4490C231982FEEF00580C70 /* SAO Tab No Facts 320x411.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58A117CC84160092E639 /* SAO Tab No Facts 320x411.jpg */; };
+		B4907D66198C78E300C33C00 /* SAO_Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4907D65198C78E300C33C00 /* SAO_Map.jpg */; };
 		B4F2248A198477CF000A0192 /* Academic-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F22472198477CF000A0192 /* Academic-tall.png */; };
 		B4F2248B198477CF000A0192 /* Academic.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F22473198477CF000A0192 /* Academic.png */; };
 		B4F2248C198477CF000A0192 /* Academic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F22474198477CF000A0192 /* Academic@2x.png */; };
@@ -180,6 +181,7 @@
 		2CA8A93F175820C10012718E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Icon@2x.png"; sourceTree = "<group>"; };
 		2CF8BA32175DA64900B57F36 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		2CF8BA33175DA64900B57F36 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
+		B4907D65198C78E300C33C00 /* SAO_Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SAO_Map.jpg; sourceTree = "<group>"; };
 		B4F22472198477CF000A0192 /* Academic-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Academic-tall.png"; sourceTree = "<group>"; };
 		B4F22473198477CF000A0192 /* Academic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Academic.png; sourceTree = "<group>"; };
 		B4F22474198477CF000A0192 /* Academic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Academic@2x.png"; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 		2C31B8D217443CB9008801D4 = {
 			isa = PBXGroup;
 			children = (
+				B4907D65198C78E300C33C00 /* SAO_Map.jpg */,
 				B4F22471198477CF000A0192 /* PNG */,
 				B4F9FE03198210D100F1409B /* SAO-Tab-png@2x.png */,
 				B4F9FE04198210D100F1409B /* SAO-Tab-Long-png.png */,
@@ -968,6 +971,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4907D66198C78E300C33C00 /* SAO_Map.jpg in Resources */,
 				B4490C221982FEEF00580C70 /* SAO Tab No Facts 320x650.jpg in Resources */,
 				B4F224A519847D91000A0192 /* Student Activity cell@2x.png in Resources */,
 				B4490C231982FEEF00580C70 /* SAO Tab No Facts 320x411.jpg in Resources */,

@@ -8,6 +8,7 @@
 
 #import "SAOTabBarController.h"
 #import "SAOClubMapViewController.h"
+#import "SAOClubTableViewController.h"
 
 @interface SAOTabBarController ()
 
@@ -42,7 +43,7 @@ withColumNumber:(int)columnNumber
 		[(NSMutableDictionary*)self.tempClubs[rowNumber-1] setValue:string
 																										 forKey:self.tempClubKeys[columnNumber]];
 	}
-#warning if the parser pulls the wrong thing from the URL (eg- boingo hotspot), then it's not a csv and there are some out of bounds exceptions here.
+//#warning if the parser pulls the wrong thing from the URL (eg- boingo hotspot), then it's not a csv and there are some out of bounds exceptions here.
 }
 
 //the parser is finished reading the table
