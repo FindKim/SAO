@@ -106,7 +106,7 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
 	}
 	
-	int cellNumber = indexPath.row;
+	NSInteger cellNumber = indexPath.row;
 	cell.textLabel.text = [(NSMutableDictionary*)[self.favoriteClubs objectAtIndex:cellNumber] valueForKey:@"Name"];
 	cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@ cell.png", [(NSMutableDictionary*)[self.favoriteClubs objectAtIndex:cellNumber] valueForKey:@"Category"]]];
 	

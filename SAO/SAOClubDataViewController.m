@@ -101,7 +101,7 @@
 	            
 	    		// Class year & major
 	    		if ([major length] > 0) {
-	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@, my major is %@, and I am in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, class, self.clubNameLabel.text, name];
+	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@; I am a %@ major in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, class, self.clubNameLabel.text, name];
 	                
 	                // Class year & no major
 		    	} else {
@@ -124,10 +124,10 @@
         // No class & major
 	    } else if ([major length] > 0) {
 	        messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@ and my major is %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, self.clubNameLabel.text, name];
-	        
         }
+
     } else {
-    	messageBody = nil;
+    	messageBody = [NSString stringWithFormat:@"Can you send me more information about the %@?\n", self.clubNameLabel.text];
     }
     
 	// To address

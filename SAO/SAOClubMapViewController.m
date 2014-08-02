@@ -98,7 +98,7 @@
 
 -(void) promptDoubleTapMapInstructions
 {
-    UIAlertView * noSavedOrderAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Zoom in to double tap on tables for more information!" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+    UIAlertView * noSavedOrderAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Double tap on tables for more information!" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
     noSavedOrderAlertView.delegate = self;
     [noSavedOrderAlertView show];
 }
@@ -113,7 +113,7 @@
 {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-	double scale = MAX(self.mapScrollView.frame.size.width / self.mapImage.size.width * 0.9, self.mapScrollView.frame.size.height / self.mapImage.size.height * 0.9);
+	double scale = MAX(self.mapScrollView.frame.size.width / self.mapImage.size.width * 0.85, self.mapScrollView.frame.size.height / self.mapImage.size.height * 0.85);
     
 	self.mapScrollView.minimumZoomScale = scale;
 	self.mapScrollView.delegate = self;
