@@ -101,7 +101,7 @@
 	            
 	    		// Class year & major
 	    		if ([major length] > 0) {
-	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@; I am a %@ major in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, class, self.clubNameLabel.text, name];
+	    			messageBody = [NSString stringWithFormat:@"Hi,\n\n My name is %@. I am a %@ major in the class of %@. Can you send me more information about the %@?\n\n\nThanks,\n\n%@", name, major, class, self.clubNameLabel.text, name];
 	                
 	                // Class year & no major
 		    	} else {

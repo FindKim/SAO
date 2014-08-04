@@ -22,8 +22,27 @@
 
 @implementation SAOClubMapViewController
 
+-(void) handleDoubleTapPartnerTable: (UIButton *)button
+{
+    NSInteger linkID = button.tag;
+    NSURL *url;
+    
+    if (linkID == 0) {
+        NSLog(@"Link to Community Partners");
+        url = [NSURL URLWithString:@"http://www.nd.edu/~kngo"];
+        
+    } else if (linkID == 1) {
+        NSLog(@"Link to Campus Partners");
+        url = [NSURL URLWithString:@"http://google.com"];
+    }
+    
+    if (![[UIApplication sharedApplication] openURL:url])
+        NSLog(@"%@%@",@"Failed to open url:",[url description]);
+}
 
--(void) handleDoubleTap: (UIButton *)button//(UIGestureRecognizer *) gestureRecognizer
+
+
+-(void) handleDoubleTapClubTable: (UIButton *)button//(UIGestureRecognizer *) gestureRecognizer
 {
     NSLog(@"Double tap working");
     
@@ -82,7 +101,11 @@
         // Added activity indicator to load new map
         [self.activityIndicatorView startAnimating];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        [self requestNewMap];
+//        Use requestNewMap if downloading from url
+//        [self requestNewMap];
+        // Static map with static button locations
+        self.mapImage = [UIImage imageNamed:@"SAO_Map.jpg"];
+        [self resetMapScrollViewWithNewImage];
         [self.view bringSubviewToFront:self.activityIndicatorView];
         self.mapLoaded = YES;
         
@@ -187,7 +210,7 @@
         UIButton *Academic = [UIButton buttonWithType:UIButtonTypeCustom];
         Academic.frame = [[academicButtonLocations objectAtIndex:i] CGRectValue];
         Academic.tag = 0;
-        [Academic addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+        [Academic addTarget:self action:@selector(handleDoubleTapClubTable:)     forControlEvents:UIControlEventTouchDownRepeat];
         [buttonContainer addObject:Academic];
     }
     
@@ -195,7 +218,7 @@
         UIButton *Athletic = [UIButton buttonWithType:UIButtonTypeCustom];
         Athletic.frame = [[athleticButtonLocations objectAtIndex:i] CGRectValue];
         Athletic.tag = 1;
-        [Athletic addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+        [Athletic addTarget:self action:@selector(handleDoubleTapClubTable:)     forControlEvents:UIControlEventTouchDownRepeat];
         [buttonContainer addObject:Athletic];
     }
     
@@ -203,7 +226,7 @@
         UIButton *Cultrual = [UIButton buttonWithType:UIButtonTypeCustom];
         Cultrual.frame = [[culturalButtonLocations objectAtIndex:i] CGRectValue];
         Cultrual.tag = 2;
-        [Cultrual addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+        [Cultrual addTarget:self action:@selector(handleDoubleTapClubTable:)     forControlEvents:UIControlEventTouchDownRepeat];
         [buttonContainer addObject:Cultrual];
     }
     
@@ -211,7 +234,7 @@
         UIButton *PerformingArts = [UIButton buttonWithType:UIButtonTypeCustom];
         PerformingArts.frame = [[performingArtsButtonLocations objectAtIndex:i] CGRectValue];
         PerformingArts.tag = 3;
-        [PerformingArts addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+        [PerformingArts addTarget:self action:@selector(handleDoubleTapClubTable:)     forControlEvents:UIControlEventTouchDownRepeat];
         [buttonContainer addObject:PerformingArts];
     }
     
@@ -219,7 +242,7 @@
         UIButton *SocialService = [UIButton buttonWithType:UIButtonTypeCustom];
         SocialService.frame = [[socialServiceButtonLocations objectAtIndex:i] CGRectValue];
         SocialService.tag = 4;
-        [SocialService addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+        [SocialService addTarget:self action:@selector(handleDoubleTapClubTable:)     forControlEvents:UIControlEventTouchDownRepeat];
         [buttonContainer addObject:SocialService];
     }
     
@@ -227,7 +250,7 @@
         UIButton *SpecialInterest = [UIButton buttonWithType:UIButtonTypeCustom];
         SpecialInterest.frame = [[specialInterestButtonLocations objectAtIndex:i] CGRectValue];
         SpecialInterest.tag = 5;
-        [SpecialInterest addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+        [SpecialInterest addTarget:self action:@selector(handleDoubleTapClubTable:)     forControlEvents:UIControlEventTouchDownRepeat];
         [buttonContainer addObject:SpecialInterest];
     }
     
@@ -235,10 +258,30 @@
         UIButton *StudentActivity = [UIButton buttonWithType:UIButtonTypeCustom];
         StudentActivity.frame = [[studentActivityButtonLocations objectAtIndex:i] CGRectValue];
         StudentActivity.tag = 6;
-        [StudentActivity addTarget:self action:@selector(handleDoubleTap:)     forControlEvents:UIControlEventTouchDownRepeat];
+        [StudentActivity addTarget:self action:@selector(handleDoubleTapClubTable:)     forControlEvents:UIControlEventTouchDownRepeat];
         [buttonContainer addObject:StudentActivity];
     }
     
+    
+    // Partner links
+    UIButton *CommunitPartners = [UIButton buttonWithType:UIButtonTypeCustom];
+    CommunitPartners.frame = CGRectMake(1200, 175, 200, 300);
+    CommunitPartners.tag = 0;
+    [CommunitPartners addTarget:self action:@selector(handleDoubleTapPartnerTable:) forControlEvents:UIControlEventTouchDownRepeat];
+    [buttonContainer addObject:CommunitPartners];
+    
+    
+    NSMutableArray* campusPartnersLocation = [[NSMutableArray alloc] init];
+    [campusPartnersLocation addObject:[NSValue valueWithCGRect:CGRectMake(200, 175, 200, 125)]];
+    [campusPartnersLocation addObject:[NSValue valueWithCGRect:CGRectMake(200, 300, 150, 175)]];
+    
+    for (int i = 0; i < [campusPartnersLocation count]; i++) {
+        UIButton *CampusPartners = [UIButton buttonWithType:UIButtonTypeCustom];
+        CampusPartners.frame = [[campusPartnersLocation objectAtIndex:i] CGRectValue];
+        CampusPartners.tag = 1;
+        [CampusPartners addTarget:self action:@selector(handleDoubleTapPartnerTable:) forControlEvents:UIControlEventTouchDownRepeat];
+        [buttonContainer addObject:CampusPartners];
+    }
     
     
     for (UIButton *button in buttonContainer) {
