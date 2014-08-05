@@ -77,32 +77,25 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
 
-    // Do any additional setup after loading the view, typically from a nib.
     // Add activity indicator to load map
     CGRect frame = CGRectMake (100, 100, 80, 80);
     self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:frame];
     self.activityIndicatorView.center = self.view.center;
     self.activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:self.activityIndicatorView];
-}
-
--(void) viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
     
-	//request for the map from online
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    //request for the map from online
     if (!self.mapLoaded) {
         
         // Added activity indicator to load new map
         [self.activityIndicatorView startAnimating];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-//        Use requestNewMap if downloading from url
-//        [self requestNewMap];
+        //        Use requestNewMap if downloading from url
+        //        [self requestNewMap];
         // Static map with static button locations
         self.mapImage = [UIImage imageNamed:@"SAO_Map.jpg"];
         [self resetMapScrollViewWithNewImage];
@@ -119,11 +112,48 @@
 	}
 }
 
+-(void) viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+}
+
 -(void) promptDoubleTapMapInstructions
 {
     UIAlertView * noSavedOrderAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Double tap on tables for more information!" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
     noSavedOrderAlertView.delegate = self;
     [noSavedOrderAlertView show];
+}
+
+-(void) scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    
+    // Centers image while zooming
+    CGSize imgViewSize = self.mapImageView.frame.size;
+    CGSize imageSize = self.mapImageView.image.size;
+    
+    CGSize realImgSize;
+    if(imageSize.width / imageSize.height > imgViewSize.width / imgViewSize.height) {
+        realImgSize = CGSizeMake(imgViewSize.width, imgViewSize.width / imageSize.width * imageSize.height);
+    }
+    else {
+        realImgSize = CGSizeMake(imgViewSize.height / imageSize.height * imageSize.width, imgViewSize.height);
+    }
+    
+    CGRect fr = CGRectMake(0, 0, 0, 0);
+    fr.size = realImgSize;
+    self.mapImageView.frame = fr;
+    
+    CGSize scrSize = scrollView.frame.size;
+    float offx = (scrSize.width > realImgSize.width ? (scrSize.width - realImgSize.width) / 2 : 0);
+    float offy = (scrSize.height > realImgSize.height ? (scrSize.height - realImgSize.height) / 2 - 30 : 0);
+    
+    // don't animate the change.
+    scrollView.contentInset = UIEdgeInsetsMake(offy, offx, offy, offx);
 }
 
 
@@ -147,20 +177,13 @@
 	}
     
 	self.mapImageView = [[UIImageView alloc] initWithImage:self.mapImage];
-    
-    CGFloat offsetX = (self.mapImage.size.width/2 - self.mapScrollView.bounds.size.width/2);
-    
 	self.mapImageView.frame = CGRectMake(0, 0, self.mapImage.size.width, self.mapImage.size.height);
-    [self.mapScrollView setContentOffset:CGPointMake(offsetX, 0)];  // Center of image is displayed
-	[self.mapScrollView addSubview:self.mapImageView];
+    // Center of image is displayed
 	self.mapScrollView.contentSize = self.mapImage.size;
-    //
-    //	CGFloat offsetX = 	(self.mapScrollView.bounds.size.width - self.mapScrollView.contentSize.width) * 0.5;
-    //
-    //	CGFloat offsetY =	(self.mapScrollView.bounds.size.height - self.mapScrollView.contentSize.height) * 0.5;
-    //
-    //	self.mapImageView.center = CGPointMake(self.mapScrollView.contentSize.width * 0.5 + offsetX,
-    //															 self.mapScrollView.contentSize.height * 0.5 + offsetY);
+    CGFloat offsetX = (self.mapScrollView.contentSize.width * 0.5 - self.mapScrollView.bounds.size.width * 0.5);
+    [self.mapScrollView setContentOffset:CGPointMake(offsetX, 0)];
+	[self.mapScrollView addSubview:self.mapImageView];
+	
 	self.mapScrollView.maximumZoomScale = 1;
     self.mapScrollView.minimumZoomScale = 0.4;
     self.mapScrollView.zoomScale = scale;
@@ -263,25 +286,25 @@
     }
     
     
-    // Partner links
-    UIButton *CommunitPartners = [UIButton buttonWithType:UIButtonTypeCustom];
-    CommunitPartners.frame = CGRectMake(1200, 175, 200, 300);
-    CommunitPartners.tag = 0;
-    [CommunitPartners addTarget:self action:@selector(handleDoubleTapPartnerTable:) forControlEvents:UIControlEventTouchDownRepeat];
-    [buttonContainer addObject:CommunitPartners];
-    
-    
-    NSMutableArray* campusPartnersLocation = [[NSMutableArray alloc] init];
-    [campusPartnersLocation addObject:[NSValue valueWithCGRect:CGRectMake(200, 175, 200, 125)]];
-    [campusPartnersLocation addObject:[NSValue valueWithCGRect:CGRectMake(200, 300, 150, 175)]];
-    
-    for (int i = 0; i < [campusPartnersLocation count]; i++) {
-        UIButton *CampusPartners = [UIButton buttonWithType:UIButtonTypeCustom];
-        CampusPartners.frame = [[campusPartnersLocation objectAtIndex:i] CGRectValue];
-        CampusPartners.tag = 1;
-        [CampusPartners addTarget:self action:@selector(handleDoubleTapPartnerTable:) forControlEvents:UIControlEventTouchDownRepeat];
-        [buttonContainer addObject:CampusPartners];
-    }
+//    // Partner links
+//    UIButton *CommunitPartners = [UIButton buttonWithType:UIButtonTypeCustom];
+//    CommunitPartners.frame = CGRectMake(1200, 175, 200, 300);
+//    CommunitPartners.tag = 0;
+//    [CommunitPartners addTarget:self action:@selector(handleDoubleTapPartnerTable:) forControlEvents:UIControlEventTouchDownRepeat];
+//    [buttonContainer addObject:CommunitPartners];
+//    
+//    
+//    NSMutableArray* campusPartnersLocation = [[NSMutableArray alloc] init];
+//    [campusPartnersLocation addObject:[NSValue valueWithCGRect:CGRectMake(200, 175, 200, 125)]];
+//    [campusPartnersLocation addObject:[NSValue valueWithCGRect:CGRectMake(200, 300, 150, 175)]];
+//    
+//    for (int i = 0; i < [campusPartnersLocation count]; i++) {
+//        UIButton *CampusPartners = [UIButton buttonWithType:UIButtonTypeCustom];
+//        CampusPartners.frame = [[campusPartnersLocation objectAtIndex:i] CGRectValue];
+//        CampusPartners.tag = 1;
+//        [CampusPartners addTarget:self action:@selector(handleDoubleTapPartnerTable:) forControlEvents:UIControlEventTouchDownRepeat];
+//        [buttonContainer addObject:CampusPartners];
+//    }
     
     
     for (UIButton *button in buttonContainer) {

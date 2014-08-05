@@ -146,8 +146,8 @@
 	// Present mail view controller on screen
 	[self presentViewController:mc animated:YES completion:NULL];
     
-    // Changing navigation bar back to ND Blue
-    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1];
+    // Changing navigation bar back to dark Blue
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:16.0/255.0 green:20.0/255.0 blue:57.0/255.0 alpha:1];
 }
 
 

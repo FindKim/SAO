@@ -20,7 +20,7 @@
 
 @implementation SAOClubTableViewController
 
-- (void) receiveTestNotification:(NSNotification *) notification
+- (void) receiveCategoryNotification:(NSNotification *) notification
 {
 
     NSLog (@"Successfully received the category notification!");
@@ -58,19 +58,19 @@
     // Initializes search bar settings
     [self.searchDisplayController.searchBar setTranslucent:NO];
     [self.searchDisplayController.searchBar setBackgroundImage:[UIImage new]];
-    [self.searchDisplayController.searchBar setBackgroundColor:[UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+    [self.searchDisplayController.searchBar setBackgroundColor:[UIColor colorWithRed:16.0/255.0 green:20.0/255.0 blue:57.0/255.0 alpha:1]];//[UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
 }
 
 - (void) initializeNSNotificationObservers
 {
     // Receives notification to scroll to section from map buttons
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Academic" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Athletic" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Cultural" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Performing Arts" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Social Service" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Special Interest" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"Student Activity" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCategoryNotification:) name:@"Academic" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCategoryNotification:) name:@"Athletic" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCategoryNotification:) name:@"Cultural" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCategoryNotification:) name:@"Performing Arts" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCategoryNotification:) name:@"Social Service" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCategoryNotification:) name:@"Special Interest" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCategoryNotification:) name:@"Student Activity" object:nil];
 }
 
 - (void)viewDidLoad
@@ -78,7 +78,10 @@
 	[super viewDidLoad];
     [self setSearchBarSettings];
 
-
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor colorWithRed:220.0/255.0 green:180.0/255.0 blue:57.0/255.0 alpha:1]; // Gold
+    [refreshControl addTarget:self action:@selector(refreshClubs) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
 
 	//	NSArray * clubArray = [NSArray arrayWithObjects:[NSString stringWithString:@], nil];
 	[(SAOTabBarController*)self.tabBarController setClubCategories: @[@"Academic",
@@ -88,22 +91,13 @@
 												 @"Social Service",
 												 @"Special Interest", @"Student Activity"]];
 	[(SAOTabBarController*)self.tabBarController setClubs:nil];
-	[self.tableView reloadData];
-    if (!self.hasDataEverLoaded) {
-        [self refreshClubs];
-        self.hasDataEverLoaded = YES;
-    }
     [self initializeNSNotificationObservers]; // Receives notification to scroll to section from map buttons
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.tintColor = [UIColor colorWithRed:220.0/255.0 green:180.0/255.0 blue:57.0/255.0 alpha:1]; // Gold
-    [refreshControl addTarget:self action:@selector(refreshClubs) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
+    
 }
 
 - (void)updateTable
 {
-    
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }
@@ -118,14 +112,12 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    if (!self.hasDataEverLoaded) {
-        [self refreshClubs];
-    }
 	[super viewWillAppear:animated];
     
-    // Tab bar ND Blue; selected icon ND gold
-    [[UITabBar appearance] setBarTintColor: [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+    // Tab bar dark Blue; selected icon ND gold
+    [[UITabBar appearance] setBarTintColor: [UIColor colorWithRed:16.0/255.0 green:20.0/255.0 blue:57.0/255.0 alpha:1]];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:220.0/255.0 green:180.0/255.0 blue:57.0/255.0 alpha:1]];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
@@ -175,7 +167,7 @@
 //	[(SAOTabBarController*)self.tabBarController setClubs:[[NSMutableArray alloc] init]];
 //	[(SAOTabBarController*)self.tabBarController setClubKeys:[[NSMutableArray alloc] init]];
 	
-	
+    
 	NSURLCache * cache = [NSURLCache sharedURLCache];
 	[cache removeAllCachedResponses];
 
@@ -187,12 +179,31 @@
 	if (tabBarController.parser.isParsing) {
 		return;
 	}
+    
 	tabBarController.parser = [[CSVParser alloc] init];
 	tabBarController.parser.delegate = tabBarController;
 	[tabBarController.parser loadCSVFileFromURL:url];
     
     [self performSelector:@selector(updateTable) withObject:nil
                afterDelay:1];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    // loading indicator
+    if (!self.hasDataEverLoaded) {
+        self.tableView.contentOffset = CGPointMake(0, -self.refreshControl.frame.size.height);
+        [self.refreshControl beginRefreshing];
+        [self refreshClubs];
+        [self performSelector:@selector(endRefreshing) withObject:nil
+                   afterDelay:1.5];
+        self.hasDataEverLoaded = YES;
+    }
+}
+
+-(void)endRefreshing
+{
+    [self.refreshControl endRefreshing];
 }
 
 -(void)viewDidDisappear:(BOOL)animated

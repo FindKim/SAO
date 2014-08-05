@@ -12,9 +12,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque];
-    // Navigation bar ND blue
-    [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+    // Navigation bar dark blue
+    [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:16.0/255.0 green:20.0/255.0 blue:57.0/255.0 alpha:1]];
+    
     // Navigation title set to white
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     [[UINavigationBar appearance] setTintColor:[UIColor grayColor]];

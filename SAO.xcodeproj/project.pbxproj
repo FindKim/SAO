@@ -57,10 +57,13 @@
 		B4490C1D1982FBE100580C70 /* EmptyStarNoShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD7D198210D100F1409B /* EmptyStarNoShadow.png */; };
 		B4490C1E1982FBE100580C70 /* FilledStar.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD82198210D100F1409B /* FilledStar.png */; };
 		B4490C1F1982FBE100580C70 /* FilledStarNoShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD83198210D100F1409B /* FilledStarNoShadow.png */; };
-		B4490C201982FC6000580C70 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A93F175820C10012718E /* Icon@2x.png */; };
-		B4490C211982FC6000580C70 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8A93D175820B70012718E /* Icon.png */; };
 		B4490C221982FEEF00580C70 /* SAO Tab No Facts 320x650.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4F9FD99198210D100F1409B /* SAO Tab No Facts 320x650.jpg */; };
 		B4490C231982FEEF00580C70 /* SAO Tab No Facts 320x411.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F58A117CC84160092E639 /* SAO Tab No Facts 320x411.jpg */; };
+		B45B3D0F199057CB00799D74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B45B3D0E199057CB00799D74 /* Images.xcassets */; };
+		B45B3D1319905B8B00799D74 /* Setting Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B45B3D1019905B8B00799D74 /* Setting Icon.png */; };
+		B45B3D1419905B8B00799D74 /* Spotlight Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45B3D1119905B8B00799D74 /* Spotlight Icon@2x.png */; };
+		B45B3D1719905D1B00799D74 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45B3D1619905D1B00799D74 /* Icon@2x.png */; };
+		B45B3D1919905D6500799D74 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B45B3D1819905D6500799D74 /* Icon.png */; };
 		B4907D66198C78E300C33C00 /* SAO_Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4907D65198C78E300C33C00 /* SAO_Map.jpg */; };
 		B4F2248A198477CF000A0192 /* Academic-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F22472198477CF000A0192 /* Academic-tall.png */; };
 		B4F2248B198477CF000A0192 /* Academic.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F22473198477CF000A0192 /* Academic.png */; };
@@ -177,10 +180,13 @@
 		2CA8A92417581F8B0012718E /* profile tab bar icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile tab bar icon@2x.png"; sourceTree = "<group>"; };
 		2CA8A92517581F8B0012718E /* SAO tab bar icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAO tab bar icon.png"; sourceTree = "<group>"; };
 		2CA8A92617581F8B0012718E /* SAO tab bar icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAO tab bar icon@2x.png"; sourceTree = "<group>"; };
-		2CA8A93D175820B70012718E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../Icon.png; sourceTree = "<group>"; };
-		2CA8A93F175820C10012718E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Icon@2x.png"; sourceTree = "<group>"; };
 		2CF8BA32175DA64900B57F36 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		2CF8BA33175DA64900B57F36 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
+		B45B3D0E199057CB00799D74 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B45B3D1019905B8B00799D74 /* Setting Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Setting Icon.png"; path = "../../Setting Icon.png"; sourceTree = "<group>"; };
+		B45B3D1119905B8B00799D74 /* Spotlight Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spotlight Icon@2x.png"; path = "../../Spotlight Icon@2x.png"; sourceTree = "<group>"; };
+		B45B3D1619905D1B00799D74 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Icon@2x.png"; sourceTree = "<group>"; };
+		B45B3D1819905D6500799D74 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../Icon.png; sourceTree = "<group>"; };
 		B4907D65198C78E300C33C00 /* SAO_Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SAO_Map.jpg; sourceTree = "<group>"; };
 		B4F22472198477CF000A0192 /* Academic-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Academic-tall.png"; sourceTree = "<group>"; };
 		B4F22473198477CF000A0192 /* Academic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Academic.png; sourceTree = "<group>"; };
@@ -597,8 +603,10 @@
 		2CA8A91B17581F8A0012718E /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				2CA8A93F175820C10012718E /* Icon@2x.png */,
-				2CA8A93D175820B70012718E /* Icon.png */,
+				B45B3D1819905D6500799D74 /* Icon.png */,
+				B45B3D1619905D1B00799D74 /* Icon@2x.png */,
+				B45B3D1019905B8B00799D74 /* Setting Icon.png */,
+				B45B3D1119905B8B00799D74 /* Spotlight Icon@2x.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -626,6 +634,13 @@
 				2CF8BA33175DA64900B57F36 /* Home@2x.png */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B45B3D0D199056F600799D74 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		B4F22471198477CF000A0192 /* PNG */ = {
@@ -660,6 +675,7 @@
 		B4F9FD5F198210D100F1409B /* SAO */ = {
 			isa = PBXGroup;
 			children = (
+				B45B3D0D199056F600799D74 /* iPad */,
 				B4F9FD60198210D100F1409B /* 44 and 88 PNG */,
 				B4F9FD7A198210D100F1409B /* CSVParser.h */,
 				B4F9FD7B198210D100F1409B /* CSVParser.m */,
@@ -702,6 +718,7 @@
 				B4F9FDB4198210D100F1409B /* SAOViewController.h */,
 				B4F9FDB5198210D100F1409B /* SAOViewController.m */,
 				B4F9FDB6198210D100F1409B /* TabBarIcons */,
+				B45B3D0E199057CB00799D74 /* Images.xcassets */,
 			);
 			path = SAO;
 			sourceTree = "<group>";
@@ -972,13 +989,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4907D66198C78E300C33C00 /* SAO_Map.jpg in Resources */,
+				B45B3D1319905B8B00799D74 /* Setting Icon.png in Resources */,
 				B4490C221982FEEF00580C70 /* SAO Tab No Facts 320x650.jpg in Resources */,
 				B4F224A519847D91000A0192 /* Student Activity cell@2x.png in Resources */,
+				B45B3D1919905D6500799D74 /* Icon.png in Resources */,
 				B4490C231982FEEF00580C70 /* SAO Tab No Facts 320x411.jpg in Resources */,
 				B4F22499198477CF000A0192 /* Special Interest-tall.png in Resources */,
-				B4490C201982FC6000580C70 /* Icon@2x.png in Resources */,
+				B45B3D0F199057CB00799D74 /* Images.xcassets in Resources */,
 				B4F2249D198477CF000A0192 /* Student Activity.png in Resources */,
-				B4490C211982FC6000580C70 /* Icon.png in Resources */,
 				B4490C1C1982FBE100580C70 /* EmptyStar.png in Resources */,
 				B4F2249A198477CF000A0192 /* Special Interest.png in Resources */,
 				B4490C1D1982FBE100580C70 /* EmptyStarNoShadow.png in Resources */,
@@ -994,6 +1012,7 @@
 				B4F2249E198477CF000A0192 /* Student Activity@2x.png in Resources */,
 				B4490C121982FB9C00580C70 /* Athletic cell.png in Resources */,
 				B4F2248C198477CF000A0192 /* Academic@2x.png in Resources */,
+				B45B3D1419905B8B00799D74 /* Spotlight Icon@2x.png in Resources */,
 				B4F2248A198477CF000A0192 /* Academic-tall.png in Resources */,
 				B4490C131982FB9C00580C70 /* Athletic cell@2x.png in Resources */,
 				B4490C141982FB9C00580C70 /* Cultural cell.png in Resources */,
@@ -1007,6 +1026,7 @@
 				B4F22491198477CF000A0192 /* Cultural.png in Resources */,
 				B4F2249B198477CF000A0192 /* Special Interest@2x.png in Resources */,
 				B4F22493198477CF000A0192 /* Performing Arts-tall.png in Resources */,
+				B45B3D1719905D1B00799D74 /* Icon@2x.png in Resources */,
 				B4490C1B1982FB9C00580C70 /* Special Interest cell@2x.png in Resources */,
 				B4490BF31982FB1500580C70 /* Home.png in Resources */,
 				B4490BF41982FB1500580C70 /* Home@2x.png in Resources */,
@@ -1177,8 +1197,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAO/SAO-Prefix.pch";
 				INFOPLIST_FILE = "SAO/SAO-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1192,8 +1215,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAO/SAO-Prefix.pch";
 				INFOPLIST_FILE = "SAO/SAO-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
