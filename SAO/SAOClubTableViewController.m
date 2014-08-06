@@ -23,8 +23,8 @@
 - (void) receiveCategoryNotification:(NSNotification *) notification
 {
 
-    NSLog (@"Successfully received the category notification!");
-    NSLog(@"The notification is %@", notification);
+//    NSLog (@"Successfully received the category notification!");
+//    NSLog(@"The notification is %@", notification);
     int section = 0;
     if ([[notification name] isEqualToString:@"Academic"]) {
         section = 0;
@@ -45,7 +45,7 @@
     // Scrolls to section
     CGRect sectionRect = [self.tableView rectForSection: section];
     sectionRect.size.height = self.tableView.frame.size.height;
-        [self.tableView scrollRectToVisible:sectionRect animated:YES];
+    [self.tableView scrollRectToVisible:sectionRect animated:YES];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -58,7 +58,7 @@
     // Initializes search bar settings
     [self.searchDisplayController.searchBar setTranslucent:NO];
     [self.searchDisplayController.searchBar setBackgroundImage:[UIImage new]];
-    [self.searchDisplayController.searchBar setBackgroundColor:[UIColor colorWithRed:16.0/255.0 green:20.0/255.0 blue:57.0/255.0 alpha:1]];//[UIColor colorWithRed:2.0/255.0 green:43.0/255.0 blue:91.0/255.0 alpha:1]];
+    [self.searchDisplayController.searchBar setBackgroundColor:[UIColor colorWithRed:16.0/255.0 green:20.0/255.0 blue:57.0/255.0 alpha:1]];
 }
 
 - (void) initializeNSNotificationObservers
@@ -92,14 +92,14 @@
 												 @"Special Interest", @"Student Activity"]];
 	[(SAOTabBarController*)self.tabBarController setClubs:nil];
     [self initializeNSNotificationObservers]; // Receives notification to scroll to section from map buttons
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedParsingFile:) name:@"finishedParsingFile" object:nil];
+
     
 }
 
 - (void)updateTable
 {
     [self.tableView reloadData];
-    [self.refreshControl endRefreshing];
 }
 
 
@@ -171,8 +171,7 @@
 	NSURLCache * cache = [NSURLCache sharedURLCache];
 	[cache removeAllCachedResponses];
 
-//	NSString *urlAddress = @"http://www.nd.edu/~sao/SAO_App/clubs.csv";
-    NSString *urlAddress = @"http://www.nd.edu/~kngo/SAO_App/clubs.csv";
+    NSString *urlAddress = @"http://www.nd.edu/~sao/SAO_App/clubs.csv";
 	NSURL *url = [NSURL URLWithString:urlAddress];
 
 	SAOTabBarController * tabBarController = (SAOTabBarController*)self.tabBarController;
@@ -183,9 +182,13 @@
 	tabBarController.parser = [[CSVParser alloc] init];
 	tabBarController.parser.delegate = tabBarController;
 	[tabBarController.parser loadCSVFileFromURL:url];
-    
     [self performSelector:@selector(updateTable) withObject:nil
                afterDelay:1];
+}
+
+- (void) finishedParsingFile:(NSNotification *) notification
+{
+    [self performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -195,8 +198,6 @@
         self.tableView.contentOffset = CGPointMake(0, -self.refreshControl.frame.size.height);
         [self.refreshControl beginRefreshing];
         [self refreshClubs];
-        [self performSelector:@selector(endRefreshing) withObject:nil
-                   afterDelay:1.5];
         self.hasDataEverLoaded = YES;
     }
 }

@@ -47,7 +47,6 @@
 	self.majorTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:MAJOR];
     self.classTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:CLASS];
 	self.emailTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:EMAIL];
-    NSLog(@"The class is %@",[[NSUserDefaults standardUserDefaults] valueForKey:CLASS]);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

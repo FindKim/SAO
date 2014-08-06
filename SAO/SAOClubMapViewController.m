@@ -44,8 +44,6 @@
 
 -(void) handleDoubleTapClubTable: (UIButton *)button//(UIGestureRecognizer *) gestureRecognizer
 {
-    NSLog(@"Double tap working");
-    
     NSString *clubCategory;
     NSInteger clubCategoryID = button.tag;
     
@@ -65,7 +63,7 @@
         clubCategory = @"Student Activity";
     }
     
-    NSLog(@"Sending category %@", clubCategory);
+//    NSLog(@"Sending category %@", clubCategory);
     
     // Sends notification to ClubsTableView
     [[NSNotificationCenter defaultCenter]
@@ -97,7 +95,7 @@
         //        Use requestNewMap if downloading from url
         //        [self requestNewMap];
         // Static map with static button locations
-        self.mapImage = [UIImage imageNamed:@"SAO_Map.jpg"];
+        self.mapImage = [UIImage imageNamed:@"SAO_Map.png"];
         [self resetMapScrollViewWithNewImage];
         [self.view bringSubviewToFront:self.activityIndicatorView];
         self.mapLoaded = YES;
@@ -166,7 +164,7 @@
 {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-	double scale = MAX(self.mapScrollView.frame.size.width / self.mapImage.size.width * 0.85, self.mapScrollView.frame.size.height / self.mapImage.size.height * 0.85);
+	double scale = MAX(self.mapScrollView.frame.size.width / self.mapImage.size.width * 0.80, self.mapScrollView.frame.size.height / self.mapImage.size.height * 0.80);
     
 	self.mapScrollView.minimumZoomScale = scale;
 	self.mapScrollView.delegate = self;
@@ -180,7 +178,16 @@
 	self.mapImageView.frame = CGRectMake(0, 0, self.mapImage.size.width, self.mapImage.size.height);
     // Center of image is displayed
 	self.mapScrollView.contentSize = self.mapImage.size;
-    CGFloat offsetX = (self.mapScrollView.contentSize.width * 0.5 - self.mapScrollView.bounds.size.width * 0.5);
+
+    // Offset depending on phone-bit--I don't understand why
+    CGFloat offsetX;
+    if (sizeof(void*) == 4) {   // 32-bit offset = 320
+        offsetX = (self.mapScrollView.contentSize.width * 0.5 - self.mapScrollView.bounds.size.width * 0.5);
+        
+    } else if (sizeof(void*) == 8) {    // 64-bit offset = 216.96 (scaled)
+        offsetX = (scale * self.mapScrollView.contentSize.width * 0.5 - self.mapScrollView.bounds.size.width * 0.5);
+    }
+
     [self.mapScrollView setContentOffset:CGPointMake(offsetX, 0)];
 	[self.mapScrollView addSubview:self.mapImageView];
 	
@@ -338,8 +345,7 @@
 	[(SAOTabBarController*)self.tabBarController setReceivedData: [[NSMutableData alloc] init]];
     
 	//make the request in the background
-    //"http://www.nd.edu/~sao/SAO_App/SAO_Map.jpg"
-    [NSURLConnection connectionWithRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.nd.edu/~kngo/SAO_App/SAO_Map.jpg"]] delegate:(SAOTabBarController*)self.tabBarController];
+    [NSURLConnection connectionWithRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.nd.edu/~sao/SAO_App/SAO_Map.png"]] delegate:(SAOTabBarController*)self.tabBarController];
     NSLog(@"this is trying to dl image");
     
 }

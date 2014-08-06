@@ -94,24 +94,16 @@
 
 - ( void )connectionDidFinishLoading: (NSURLConnection *)connection
 {
-
-	NSLog(@"loadedData: %@", [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding]);
-//	NSString * loadedFile = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
-	
-    NSStringEncoding encoding = 0;
-    NSError *error;
-    
-    NSString *absoluteURL = @"http://www.nd.edu/~kngo/SAO_App/clubs.csv";
-    NSURL *url = [NSURL URLWithString:absoluteURL];
-    NSString *loadedFile = [[NSString alloc] initWithContentsOfURL:url encoding:encoding error:&error];
-    NSLog(@"loadedData: %@", loadedFile);
+    NSStringEncoding encoding = NSASCIIStringEncoding;
+    NSString *loadedFile = [[NSString alloc] initWithData:self.receivedData encoding:encoding];
+//    NSLog(@"loadedData: %@", loadedFile);
     
 //    NSArray *contentArray = [fileString componentsSeparatedByString:@"\r"];
 //    NSLog(@"%@",loadedFile);
     
     
-    //    for (NSString *item in contentArray) {
-    //        NSArray *itemArray = [item componentsSeparatedByString:@","];
+//    for (NSString *item in contentArray) {
+//        NSArray *itemArray = [item componentsSeparatedByString:@","];
     
     
 	self.lines = [loadedFile componentsSeparatedByString:@"\r"];

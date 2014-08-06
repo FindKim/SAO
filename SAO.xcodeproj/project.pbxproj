@@ -64,6 +64,7 @@
 		B45B3D1419905B8B00799D74 /* Spotlight Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45B3D1119905B8B00799D74 /* Spotlight Icon@2x.png */; };
 		B45B3D1719905D1B00799D74 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45B3D1619905D1B00799D74 /* Icon@2x.png */; };
 		B45B3D1919905D6500799D74 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B45B3D1819905D6500799D74 /* Icon.png */; };
+		B47B6EA81992CAA2002763AE /* SAO_Map.png in Resources */ = {isa = PBXBuildFile; fileRef = B47B6EA71992CAA2002763AE /* SAO_Map.png */; };
 		B4907D66198C78E300C33C00 /* SAO_Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4907D65198C78E300C33C00 /* SAO_Map.jpg */; };
 		B4F2248A198477CF000A0192 /* Academic-tall.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F22472198477CF000A0192 /* Academic-tall.png */; };
 		B4F2248B198477CF000A0192 /* Academic.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F22473198477CF000A0192 /* Academic.png */; };
@@ -187,6 +188,7 @@
 		B45B3D1119905B8B00799D74 /* Spotlight Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spotlight Icon@2x.png"; path = "../../Spotlight Icon@2x.png"; sourceTree = "<group>"; };
 		B45B3D1619905D1B00799D74 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Icon@2x.png"; sourceTree = "<group>"; };
 		B45B3D1819905D6500799D74 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../Icon.png; sourceTree = "<group>"; };
+		B47B6EA71992CAA2002763AE /* SAO_Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SAO_Map.png; sourceTree = "<group>"; };
 		B4907D65198C78E300C33C00 /* SAO_Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SAO_Map.jpg; sourceTree = "<group>"; };
 		B4F22472198477CF000A0192 /* Academic-tall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Academic-tall.png"; sourceTree = "<group>"; };
 		B4F22473198477CF000A0192 /* Academic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Academic.png; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 		2C31B8D217443CB9008801D4 = {
 			isa = PBXGroup;
 			children = (
+				B47B6EA71992CAA2002763AE /* SAO_Map.png */,
 				B4907D65198C78E300C33C00 /* SAO_Map.jpg */,
 				B4F22471198477CF000A0192 /* PNG */,
 				B4F9FE03198210D100F1409B /* SAO-Tab-png@2x.png */,
@@ -1011,6 +1014,7 @@
 				B4F2248F198477CF000A0192 /* Athletic@2x.png in Resources */,
 				B4F2249E198477CF000A0192 /* Student Activity@2x.png in Resources */,
 				B4490C121982FB9C00580C70 /* Athletic cell.png in Resources */,
+				B47B6EA81992CAA2002763AE /* SAO_Map.png in Resources */,
 				B4F2248C198477CF000A0192 /* Academic@2x.png in Resources */,
 				B45B3D1419905B8B00799D74 /* Spotlight Icon@2x.png in Resources */,
 				B4F2248A198477CF000A0192 /* Academic-tall.png in Resources */,
@@ -1192,8 +1196,8 @@
 		2C31B8FF17443CBA008801D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAO/SAO-Prefix.pch";
 				INFOPLIST_FILE = "SAO/SAO-Info.plist";
@@ -1210,8 +1214,8 @@
 		2C31B90017443CBA008801D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAO/SAO-Prefix.pch";
 				INFOPLIST_FILE = "SAO/SAO-Info.plist";

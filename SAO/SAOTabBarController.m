@@ -54,6 +54,7 @@ withColumNumber:(int)columnNumber
 		self.clubs = self.tempClubs;
 		self.clubKeys = self.tempClubKeys;
 		[[(UITableViewController*)self.viewControllers[2] tableView] reloadData];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"finishedParsingFile" object:nil];
 		});
 	NSLog(@"Finished parsing file.");
 }
